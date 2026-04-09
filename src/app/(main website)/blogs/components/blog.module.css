@@ -1,0 +1,104 @@
+/* post.module.css */
+
+.postStyle {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Markdown elements styling */
+.postStyle h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  color: #222;
+}
+
+.postStyle h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+}
+
+.postStyle h3,
+.postStyle h4,
+.postStyle h5 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 15px;
+  color: #333;
+}
+
+.postStyle p {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.postStyle ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #444;
+}
+
+.postStyle ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  color: #444;
+}
+
+.postStyle img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 1rem 0;
+  border: 1px solid #eee;
+}
+
+/* Table Styles */
+.postStyle table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  display: table;
+  /* Ensure table layout */
+}
+
+.postStyle th {
+  background-color: #004422;
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+}
+
+.postStyle td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.postStyle tr:last-child td {
+  border-bottom: none;
+}
+
+.postStyle tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.postStyle tr:hover {
+  background-color: #f0fffa;
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+  .postStyle table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

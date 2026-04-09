@@ -1,0 +1,58 @@
+import { connectDB } from "@/lib/mongodb";
+import Invitation from "@/models/invitationModel";
+import { notFound } from "next/navigation";
+import ResponsiveTemplateWrapper from "./components/ResponsiveTemplateWrapper";
+
+export async function generateMetadata({ params }) {
+    const { slug } = await params;
+
+    await connectDB();
+    const invitation = await Invitation.findOne({ slug }).lean();
+
+    if (!invitation) return {};
+
+    const invitorName = invitation.satsangDetails?.invitorName || "Khanna Family";
+    const title = `Guruji Satsang Invitation by ${invitorName}`;
+    const description = `You are lovingly invited to attend the Guruji Satsang by ${invitorName}`;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            url: `https://khushkhabri.vercel.app/g/${slug}`,
+            images: [
+                {
+                    url: "/satsangseo.png", // fallback placeholder
+                    width: 700,
+                    height: 547,
+                    alt: title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: ["/satsangseo.png"],
+        },
+    };
+}
+
+export default async function GurujiTemplatePage({ params }) {
+    const { slug } = await params;
+
+    await connectDB();
+    const invitation = await Invitation.findOne({ slug }).lean();
+
+    if (!invitation) {
+        return notFound();
+    }
+
+    return (
+        <ResponsiveTemplateWrapper
+            invitation={JSON.parse(JSON.stringify(invitation))}
+        />
+    );
+}

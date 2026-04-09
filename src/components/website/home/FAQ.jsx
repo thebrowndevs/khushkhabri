@@ -1,0 +1,178 @@
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const weddingFaqs = [
+    {
+        question: "How do I create my digital invitation?",
+        ans: "Simply choose a theme from our collection, fill in your wedding details (names, dates, venue), and our system will generate your custom invitation website instantly."
+    },
+    {
+        question: "Can I customize the themes?",
+        ans: "Yes! You can customize text, add your own photos, and in many themes, you can even adjust colors to match your wedding palette."
+    },
+    {
+        question: "Is it possible to add music to the invitation?",
+        ans: "Absolutely. You can select from our curated library of romantic background music or upload your favorite track to play when guests open your link."
+    },
+    {
+        question: "How do I share the invitation with guests?",
+        ans: "Once your invitation is ready, you'll get a unique link. You can share this link via WhatsApp, Email, or any social media platform effortlessly."
+    },
+    {
+        question: "Can guests RSVP through the website?",
+        ans: "Yes, we have a built-in RSVP system. Guests can confirm their attendance, and you can track the guest list directly from your dashboard."
+    },
+    {
+        question: "Are the invitations mobile-friendly?",
+        ans: "Every invitation we create is fully responsive. They look beautiful on smartphones, tablets, and desktops, ensuring a great experience for all your guests."
+    },
+    {
+        question: "How long does the invitation website stay active?",
+        ans: "Your website remains active for up to one year after your wedding date, allowing you to share post-wedding photos and videos as well."
+    },
+    {
+        question: "Can I add a location map for the venue?",
+        ans: "Yes, you can integrate Google Maps links for all your venues, making it incredibly easy for guests to navigate to the wedding locations."
+    },
+    {
+        question: "Do you offer support if I have trouble?",
+        ans: "Our support team is available via WhatsApp and Email to help you with any technical issues or customization requests you might have."
+    },
+    {
+        question: "Is my data secure?",
+        ans: "We take privacy seriously. Your personal details and your guests' RSVP information are stored securely and are never shared with third parties."
+    }
+];
+
+const floatingIcons = [
+    { id: 211, src: "/icons/21.png", top: "5%", left: "4%", size: "w-16 h-16 md:w-24 md:h-24", delay: 0 },
+    { id: 212, src: "/icons/21.png", bottom: "21%", right: "5%", size: "w-14 h-14 md:w-20 md:h-20", delay: 2 },
+    { id: 221, src: "/icons/22.png", top: "15%", right: "4%", size: "w-14 h-14 md:w-22 md:h-22", delay: 1.5 },
+    { id: 222, src: "/icons/22.png", bottom: "40%", left: "3%", size: "w-12 h-12 md:w-18 md:h-18", delay: 3.5 },
+    { id: 231, src: "/icons/23.png", bottom: "5%", left: "6%", size: "w-20 h-20 md:w-28 md:h-28", delay: 3 },
+    { id: 232, src: "/icons/23.png", top: "40%", right: "5%", size: "w-16 h-16 md:w-24 md:h-24", delay: 1 },
+    { id: 241, src: "/icons/24.png", bottom: "5%", right: "6%", size: "w-16 h-16 md:w-24 md:h-24", delay: 0.5 },
+    { id: 242, src: "/icons/24.png", top: "30%", left: "12%", size: "w-14 h-14 md:w-20 md:h-20", delay: 2.5 },
+    { id: 251, src: "/icons/25.png", top: "55%", right: "11%", size: "w-14 h-14 md:w-22 md:h-22", delay: 2.2 },
+    { id: 252, src: "/icons/25.png", bottom: "20%", left: "5%", size: "w-12 h-12 md:w-18 md:h-18", delay: 0.8 },
+];
+
+function FAQ() {
+    const [openIndex, setOpenIndex] = useState(null);
+
+    return (
+        <section className="relative w-full pb-12 md:pb-20 z-10 pt-5 overflow-hidden">
+
+            {/* Floating Icons */}
+            {floatingIcons.map((icon) => (
+                <motion.div
+                    key={icon.id}
+                    className={`absolute ${icon.size} opacity-40 pointer-events-none hidden md:block`}
+                    style={{
+                        top: icon.top,
+                        left: icon.left,
+                        right: icon.right,
+                        bottom: icon.bottom
+                    }}
+                    animate={{
+                        y: [0, -25, 0],
+                        rotate: [0, 15, -15, 0],
+                        scale: [1, 1.15, 1]
+                    }}
+                    transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        delay: icon.delay,
+                        ease: "easeInOut"
+                    }}
+                >
+                    <Image
+                        src={icon.src}
+                        alt="decorative icon"
+                        width={100}
+                        height={100}
+                        className="w-full h-full object-contain"
+                    />
+                </motion.div>
+            ))}
+
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+
+                {/* Heading */}
+                <div className="text-center mb-12">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-3xl md:text-5xl font-bold text-[#5a1e2b] mb-4"
+                    >
+                        Frequently Asked Questions
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-gray-700 font-medium"
+                    >
+                        Everything you need to know about your special day's digital invite
+                    </motion.p>
+                </div>
+
+                {/* FAQ List */}
+                <div className="space-y-4">
+                    {weddingFaqs.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.05 }}
+                            className="overflow-hidden"
+                        >
+                            <div
+                                className={`group bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl cursor-pointer transition-all duration-300 hover:bg-white/90 ${openIndex === index ? "shadow-md ring-1 ring-[#e7d3d7]" : "shadow-sm"
+                                    }`}
+                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                            >
+                                {/* Question */}
+                                <div className="flex justify-between items-center px-6 py-5">
+                                    <h3 className={`font-semibold text-lg transition-colors duration-300 ${openIndex === index ? "text-[#7a2535]" : "text-gray-800"
+                                        }`}>
+                                        {item.question}
+                                    </h3>
+                                    <div className={`p-1 rounded-full transition-all duration-300 ${openIndex === index ? "bg-[#7a2535] text-white rotate-180" : "bg-gray-100 text-gray-500"
+                                        }`}>
+                                        <ChevronDown className="w-5 h-5" />
+                                    </div>
+                                </div>
+
+                                {/* Answer */}
+                                <AnimatePresence>
+                                    {openIndex === index && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        >
+                                            <div className="px-6 pb-6 pt-1 text-gray-600 leading-relaxed text-base">
+                                                {item.ans}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default FAQ;
