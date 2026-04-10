@@ -5,8 +5,8 @@ export const THEMES = [
         themeName: "sikh1",
         category: "Sikh Wedding",
         description: "A graceful and spiritual design inspired by Anand Karaj traditions, featuring elegant tones and sacred aesthetics perfect for a Sikh wedding.",
-        image: "/templates/sikh/preview.png",
-        demoUrl: "s/gurpreet-weds-simran-dc8",
+        image: "/images/invite1.png",
+        demoUrl: "/s/gurpreet-weds-simran-dc8",
     },
     {
         id: 2,
@@ -14,8 +14,8 @@ export const THEMES = [
         themeName: "hindu1",
         category: "Hindu Wedding",
         description: "A luxurious palace-inspired theme with royal architecture, grand aesthetics and rich colors for a majestic wedding celebration.",
-        image: "/templates/sikh/invite2.png",
-        demoUrl: "/r/hindu1",
+        image: "/images/invite2.png",
+        demoUrl: "/r/aarav-weds-saanvi-cwx",
     },
     {
         id: 3,
@@ -23,8 +23,8 @@ export const THEMES = [
         themeName: "hindu2",
         category: "Hindu Wedding",
         description: "A sacred temple-inspired design with traditional elements and divine vibes, perfect for a spiritually rich wedding experience.",
-        image: "/templates/sikh/invite3.png",
-        demoUrl: "/t/hindu2",
+        image: "/images/invite3.png",
+        demoUrl: "/t/aarav-weds-saanvi-frz",
     },
     {
         id: 4,
@@ -32,8 +32,8 @@ export const THEMES = [
         themeName: "hindu3",
         category: "Hindu Wedding",
         description: "A soft and beautiful floral theme inspired by nature, bringing freshness and elegance to your wedding invitation.",
-        image: "/templates/sikh/invite5.png",
-        demoUrl: "/f/hindu3",
+        image: "/images/invite4.png",
+        demoUrl: "/f/ekansh-weds-manika-aw8",
     },
     {
         id: 5,
@@ -41,8 +41,8 @@ export const THEMES = [
         themeName: "guruji1",
         category: "Guruji Satsang",
         description: "A calm and devotional design crafted for Guruji Satsang invitations, reflecting peace, spirituality and simplicity.",
-        image: "/templates/sikh/invite4.png",
-        demoUrl: "/g/guruji1",
+        image: "/images/invite5.png",
+        demoUrl: "/g/guruji-satsang-by-khanna-family-k52",
     },
 ];
 

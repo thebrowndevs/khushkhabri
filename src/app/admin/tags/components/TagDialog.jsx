@@ -85,7 +85,7 @@ export default function TagDialog({ open, onOpenChange, selectedTag, onCreate, o
                                     className={clsx("w-full", {
                                         "border-red-500": errors.name,
                                     })}
-                                    placeholder="Almond Oil"
+                                    placeholder="Wedding/ Birthday/ Anniversary"
                                 />
                                 {errors.name && (
                                     <p className="text-sm text-red-500 mt-1">
@@ -109,7 +109,7 @@ export default function TagDialog({ open, onOpenChange, selectedTag, onCreate, o
                                             !/\s/.test(value) || "Slug cannot contain spaces",
                                     })}
                                     className={clsx("w-full", { "border-red-500": errors.slug })}
-                                    placeholder="almond-oil"
+                                    placeholder="wedding/birthday/anniversary"
                                 />
                                 {errors.slug && (
                                     <p className="text-sm text-red-500 mt-1">

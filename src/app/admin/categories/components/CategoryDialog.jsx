@@ -144,7 +144,7 @@ export default function CategoryDialog({ open, onOpenChange, selectedCategory, o
                                     className={clsx("w-full", {
                                         "border-red-500": errors.name,
                                     })}
-                                    placeholder="Sports"
+                                    placeholder="Wedding/ Birthday/ Anniversary"
                                 />
                                 {errors.name && (
                                     <p className="text-sm text-red-500 mt-1">
@@ -168,7 +168,7 @@ export default function CategoryDialog({ open, onOpenChange, selectedCategory, o
                                             !/\s/.test(value) || "Slug cannot contain spaces",
                                     })}
                                     className={clsx("w-full", { "border-red-500": errors.slug })}
-                                    placeholder="sports"
+                                    placeholder="wedding/birthday/anniversary"
                                     disabled={true}
                                 />
                                 {errors.slug && (

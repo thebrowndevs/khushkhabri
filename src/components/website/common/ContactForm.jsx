@@ -21,12 +21,32 @@ const ContactForm = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate form submission
-        setTimeout(() => {
-            toast.success('Message sent successfully! We will contact you soon.');
-            setFormData({ name: '', phone: '', email: '', message: '' });
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                toast.success('Message sent successfully! We will contact you soon.');
+                setFormData({ name: '', phone: '', email: '', message: '' });
+            } else {
+                const errorData = await response.json();
+                // Ensure error is a string to avoid React render error
+                const errorMessage = typeof errorData.error === 'string' 
+                    ? errorData.error 
+                    : (errorData.error?.message || 'Failed to send message. Please try again.');
+                toast.error(errorMessage);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            toast.error('An error occurred. Please check your connection and try again.');
+        } finally {
             setIsSubmitting(false);
-        }, 1500);
+        }
     };
 
     return (

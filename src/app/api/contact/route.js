@@ -8,7 +8,7 @@ export async function POST(request) {
         const body = await request.json();
 
         // Validate required fields
-        if (!body.name || !body.email || !body.phone || !body.description) {
+        if (!body.name || !body.email || !body.phone || !body.message) {
             return NextResponse.json(
                 { error: "Missing required fields" },
                 { status: 400 }
@@ -77,7 +77,7 @@ export async function POST(request) {
                                                 Message:
                                             </td>
                                             <td style="padding: 20px 0 12px; font-weight: 500;">
-                                                ${body.description}
+                                                ${body.message}
                                             </td>
                                         </tr>
                                     </table>
@@ -99,11 +99,10 @@ export async function POST(request) {
                                         <tr>
                                             <td style="padding-top: 30px; border-top: 1px solid #d1fae5; text-align: center; color: #64748b; font-size: 14px;">
                                                 <p style="margin: 0 0 10px; color: #064e3b; font-weight: 500;">
-                                                    <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
-                                                    This message was sent from the Trivenika contact form
+                                                    This message was sent from the Khushkhabri contact form
                                                 </p>
                                                 <p style="margin: 0; color: #64748b;">
-                                                    © ${new Date().getFullYear()} Trivenika. All rights reserved
+                                                    © ${new Date().getFullYear()} Khushkhabri. All rights reserved
                                                 </p>
                                             </td>
                                         </tr>
@@ -119,18 +118,20 @@ export async function POST(request) {
         `;
 
         const { data, error } = await resend.emails.send({
-            from: "Trivenika Contact <trivenika@resend.dev>",
-            to: "tusharmohan0416@gmail.com",
+            from: "Khushkhabri Contact <onboarding@resend.dev>",
+            to: "thebrowndevs@gmail.com",
             subject: `New Contact Submission from ${body.name}`,
             html: emailHtml,
         });
 
         if (error) {
+            console.error('Resend API Error:', error);
             return NextResponse.json({ error }, { status: 500 });
         }
 
         return NextResponse.json(data);
     } catch (error) {
-        return NextResponse.json({ error }, { status: 500 });
+        console.error('Contact API Crash:', error);
+        return NextResponse.json({ error: error.message || "Internal Server Error" }, { status: 500 });
     }
 }
