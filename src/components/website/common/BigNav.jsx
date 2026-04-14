@@ -10,6 +10,7 @@ export default function BigNav({ onLoginClick, session, status }) {
     const menu = [
         { label: 'Home', href: '/' },
         { label: 'Templates', href: '/templates' },
+        { label: 'Video Invites', href: '/video-invites' },
         { label: 'About Us', href: '/about-us' },
         { label: 'Blogs', href: '/blogs' },
         { label: 'Contact Us', href: '/contact-us' },
