@@ -5,6 +5,7 @@ import Footer from "@/components/website/common/Footer";
 import SmoothScroll from "@/components/website/common/SmoothScroll";
 import VideoInvitesHero from "@/components/website/video-invites/VideoInvitesHero";
 import DemoVideosSection from "@/components/website/video-invites/DemoVideosSection";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export const metadata = {
   title: 'Video Invitations | Khushkhabri',
@@ -46,6 +47,8 @@ export default function VideoInvitesPage() {
           <Footer />
         </div>
       </div>
+      <WhatsAppWidget />
+
     </SmoothScroll>
   );
 }

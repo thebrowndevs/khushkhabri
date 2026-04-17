@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast, Toaster } from "sonner";
 import AuthDialog from "@/components/auth/LoginDialog";
+import Link from "next/link";
 
 import { THEMES } from "@/lib/constants/themes";
 
@@ -33,7 +34,10 @@ export default function TemplatesSection() {
                 const res = await fetch("/api/themes");
                 const data = await res.json();
                 if (data.themes?.length > 0) {
-                    setThemePrice(data.themes[0].price);
+                    setThemePrice({
+                        original: data.themes[0].originalPrice,
+                        discounted: data.themes[0].discountedPrice
+                    });
                 }
             } catch (err) {
                 console.error("Failed to fetch theme price:", err);
@@ -87,7 +91,7 @@ export default function TemplatesSection() {
                             ...response,
                             themeName,
                             userId: session.user.id,
-                            amount: themePrice,
+                            amount: themePrice?.discounted || 4000,
                         }),
                     });
                     const verifyData = await verifyRes.json();
@@ -131,7 +135,9 @@ export default function TemplatesSection() {
         }
     }, [session, isLoginDialogOpen]);
 
-    const displayPrice = themePrice ? `₹${themePrice.toLocaleString()}` : "₹4,000";
+    const discountedPrice = themePrice?.discounted || 4000;
+    const originalPrice = themePrice?.original || 7000;
+    const discountPercent = Math.round(((originalPrice - discountedPrice) / originalPrice) * 100);
 
     return (
         <>
@@ -186,62 +192,77 @@ export default function TemplatesSection() {
                                 className="flex flex-col items-center bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 border border-white/50 w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33%-1.5rem)] max-w-[360px]"
                             >
                                 {/* Image */}
-                                <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-gray-100">
-                                    <Image
-                                        src={theme.image}
-                                        alt={theme.title}
-                                        fill
-                                        className="object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
-                                    />
+                                <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-3 bg-gray-100 group">
+                                    <a href={`${theme.demoUrl}`} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                                        {/* Desktop Image */}
+                                        <Image
+                                            src={theme.image}
+                                            alt={theme.title}
+                                            fill
+                                            className="hidden sm:block object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
+                                        />
+                                        {/* Mobile Mockup */}
+                                        <Image
+                                            src={theme.mobileImage}
+                                            alt={theme.title}
+                                            fill
+                                            className="block sm:hidden object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
+                                        />
+                                    </a>
+
+                                    {/* Discount Badge */}
+                                    <div className="absolute top-4 left-4 bg-[#8b2c3c] text-white px-3 py-1.5 rounded-full text-[10px] font-bold shadow-lg z-20 animate-pulse">
+                                        {discountPercent}% OFF
+                                    </div>
+
                                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-[#8b2c3c] shadow-sm z-10">
                                         {theme.category}
                                     </div>
 
                                     {/* Most Loved Badge for Royal Palace */}
                                     {theme.title === "Royal Palace" && (
-                                        <div className="absolute top-4 left-4 bg-gradient-to-r from-green-400 to-green-500 text-green-950 px-3 py-1 rounded-full text-xs font-bold shadow-md flex items-center gap-1 z-10">
+                                        <div className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-amber-950 px-3 py-1 rounded-full text-[10px] font-bold shadow-md flex items-center gap-1 z-10">
                                             ❤️ Most Loved
                                         </div>
                                     )}
                                 </div>
-
                                 <div className="w-full text-center px-2 flex flex-col flex-1">
-                                    <h3 className="text-2xl font-semibold text-[#5a1e2b] mb-2">{theme.title}</h3>
-                                    <p className="text-gray-600 text-sm mb-4 flex-1">{theme.description}</p>
+                                    <h3 className="text-2xl font-semibold text-[#5a1e2b] mb-1">{theme.title}</h3>
+                                    <p className="text-gray-500 text-xs mb-2 flex-1 line-clamp-2">{theme.description}</p>
 
-                                    {/* Price */}
-                                    <div className="text-2xl font-bold text-[#8b2c3c] mb-4">
-                                        {displayPrice}
-                                    </div>
+                                    {/* Footer Section: Price & Actions */}
+                                    <div className="w-full mt-auto pt-2 border-t border-gray-100 flex flex-col gap-4">
+                                        <div className="flex items-end justify-between px-1">
+                                            <div className="flex flex-col text-left">
+                                                <span className="text-xs text-gray-400 line-through font-medium leading-none mb-1.5">
+                                                    ₹{originalPrice.toLocaleString()}
+                                                </span>
+                                                <span className="text-2xl font-bold text-[#8b2c3c] leading-none">
+                                                    ₹{discountedPrice.toLocaleString()}
+                                                </span>
+                                            </div>
+                                            <a
+                                                href={theme.demoUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-sm font-semibold text-[#8b2c3c] hover:text-[#5a1e2b] flex items-center gap-1 transition-colors"
+                                            >
+                                                See Live Demo <span className="text-lg leading-none mb-0.5">→</span>
+                                            </a>
+                                        </div>
 
-                                    {/* Buttons: View Demo + Buy Now */}
-                                    <div className="flex items-center gap-3 w-full mt-auto pt-4 border-t border-gray-100">
-                                        <a
-                                            href={theme.demoUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex-1 px-4 py-2.5 border-2 border-[#8b2c3c] text-[#8b2c3c] rounded-full text-sm font-medium hover:bg-[#8b2c3c]/5 transition-colors text-center"
-                                        >
-                                            See Live Invite
-                                        </a>
                                         <button
                                             onClick={() => handleBuyNow(theme.themeName)}
                                             disabled={buyingTheme === theme.themeName}
-                                            className="flex-1 px-4 py-2.5 bg-[#8b2c3c] text-white rounded-full text-sm font-medium hover:bg-[#5a1e2b] transition-colors disabled:opacity-60 disabled:cursor-wait"
+                                            className="w-full py-3 bg-[#8b2c3c] text-white rounded-xl text-sm font-medium hover:bg-[#5a1e2b] transition-all disabled:opacity-60 disabled:cursor-wait shadow-sm hover:shadow-md"
                                         >
-                                            {buyingTheme === theme.themeName ? "Processing..." : "Choose This Design"}
+                                            {buyingTheme === theme.themeName ? "..." : "Get This Template"}
                                         </button>
                                     </div>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
-
-                    {/* <div className="mt-16 text-center">
-                        <button className="px-8 py-3 bg-white text-[#8b2c3c] border border-[#8b2c3c] rounded-full text-lg font-medium hover:bg-[#8b2c3c] hover:text-white transition-colors shadow-sm">
-                            View All Templates
-                        </button>
-                    </div> */}
                 </div>
             </section>
 

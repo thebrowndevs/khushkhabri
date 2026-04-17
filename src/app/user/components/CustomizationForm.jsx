@@ -73,38 +73,38 @@ export default function CustomizationForm({ invitation, orderId }) {
     };
 
     return (
-        <div className="space-y-12 pb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div className="space-y-6 pb-2 animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Header with Title and Cancel */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#8b2c3c]/5 p-6 rounded-[32px] border border-[#8b2c3c]/10">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#8b2c3c]/5 p-5 md:p-6 rounded-sm md:rounded-2xl border border-[#8b2c3c]/10">
                 <div>
-                    <h2 className="text-sm font-bold text-[#8b2c3c] uppercase tracking-widest mb-1 flex items-center gap-2">
+                    <h2 className="text-[10px] md:text-sm font-bold text-[#8b2c3c] uppercase tracking-widest mb-1 flex items-center gap-2">
                         Editing Invitation
                         <span className="bg-[#8b2c3c]/10 px-2 py-0.5 rounded text-[10px] font-mono tracking-normal lowercase">{invitation?.slug}</span>
                     </h2>
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">
                         {invitation?.weddingDetails?.groom?.name} & {invitation?.weddingDetails?.bride?.name}
                     </h3>
                 </div>
                 <button
                     onClick={() => router.push(`/user/templates/${orderId}`)}
-                    className="px-6 py-3 bg-white text-gray-600 rounded-2xl font-bold border border-gray-100 hover:bg-gray-50 transition-all flex items-center gap-2 w-fit"
+                    className="px-4 py-2.5 md:px-6 md:py-3 bg-white text-gray-600 rounded-sm md:rounded-xl font-bold border border-gray-100 hover:bg-gray-50 transition-all flex items-center justify-center gap-2 w-full md:w-fit text-sm md:text-base"
                 >
-                    <X size={20} />
+                    <X size={18} className="md:w-5 md:h-5" />
                     Cancel Editing
                 </button>
             </div>
 
             {/* Side Selection */}
-            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-100">
-                <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-3">
-                        <Settings2 className="text-[#8b2c3c]" />
+            <div className="bg-white rounded-sm md:rounded-2xl p-5 md:p-8 shadow-sm border border-gray-100">
+                <div className="mb-6 md:mb-8">
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 flex items-center gap-2 md:gap-3">
+                        <Settings2 className="text-[#8b2c3c] w-5 h-5 md:w-6 md:h-6" />
                         Which side are you?
                     </h3>
-                    <p className="text-gray-500">This helps us personalize the wording and layout for you.</p>
+                    <p className="text-xs md:text-sm text-gray-500">This helps us personalize the wording and layout for you.</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 max-w-2xl">
                     <button
                         onClick={() => setSide('bride')}
                         className={`p-6 rounded-3xl border-2 transition-all flex flex-col items-center gap-4 group ${side === 'bride'
@@ -139,19 +139,19 @@ export default function CustomizationForm({ invitation, orderId }) {
 
             {/* Events Grid */}
             <div className="space-y-6">
-                <div className="flex items-end justify-between px-4">
+                <div className="flex items-end justify-between px-2 md:px-4">
                     <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">Wedding Events</h3>
-                        <p className="text-gray-500">Enable and configure the events you want to include.</p>
+                        <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1">Wedding Events</h3>
+                        <p className="text-xs md:text-sm text-gray-500">Enable and configure the events you want to include.</p>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {events.map((event, index) => (
                         <div
                             key={event.name}
-                            className={`bg-white rounded-[32px] p-6 border transition-all duration-300 ${event.enabled
-                                ? 'border-[#8b2c3c]/30 shadow-md ring-1 ring-[#8b2c3c]/5'
+                            className={`bg-white rounded-sm md:rounded-2xl p-5 border transition-all duration-300 ${event.enabled
+                                ? 'border-[#8b2c3c]/30 shadow-sm ring-1 ring-[#8b2c3c]/5'
                                 : 'border-gray-100 opacity-70 grayscale-[0.5]'
                                 }`}
                         >
@@ -225,13 +225,13 @@ export default function CustomizationForm({ invitation, orderId }) {
             </div>
 
             {/* RSVP Number Section */}
-            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-100">
-                <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-3">
-                        <MapPin className="text-[#8b2c3c]" />
+            <div className="bg-white rounded-sm md:rounded-2xl p-5 md:p-8 shadow-sm border border-gray-100">
+                <div className="mb-6 md:mb-8">
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 flex items-center gap-2 md:gap-3">
+                        <MapPin className="text-[#8b2c3c] w-5 h-5 md:w-6 md:h-6" />
                         RSVP Contact Number
                     </h3>
-                    <p className="text-gray-500">Provide a phone number for guests to RSVP.</p>
+                    <p className="text-xs md:text-sm text-gray-500">Provide a phone number for guests to RSVP.</p>
                 </div>
 
                 <div className="max-w-md">
@@ -247,13 +247,13 @@ export default function CustomizationForm({ invitation, orderId }) {
             </div>
 
             {/* Save Button */}
-            <div className="flex justify-center pt-8">
+            <div className="flex justify-center pt-1">
                 <button
                     onClick={handleSave}
                     disabled={loading}
-                    className="flex items-center gap-3 px-16 py-5 bg-[#8b2c3c] text-white rounded-3xl font-bold hover:bg-[#5a1e2b] transition-all shadow-xl shadow-[#8b2c3c]/20 transform active:scale-[0.98] disabled:opacity-50"
+                    className="flex items-center justify-center gap-2 md:gap-3 w-full sm:w-auto px-8 py-3.5 md:px-16 md:py-5 bg-[#8b2c3c] text-white rounded-sm md:rounded-xl font-bold hover:bg-[#5a1e2b] transition-all shadow-md transform active:scale-[0.98] disabled:opacity-50 text-sm md:text-base cursor-pointer"
                 >
-                    <Save size={24} />
+                    <Save size={20} className="md:w-6 md:h-6" />
                     <span>{loading ? 'Saving...' : 'Save Invitation'}</span>
                 </button>
             </div>

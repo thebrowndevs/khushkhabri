@@ -1,6 +1,7 @@
 // app/blogs/layout.jsx
 
 import SmoothScroll from "@/components/website/common/SmoothScroll";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export const metadata = {
     title: "Digital Invitation & Event Planning Blogs | Khushkhabri",
@@ -60,6 +61,7 @@ export default function Layout({ children }) {
             />
             <SmoothScroll>
                 {children}
+                <WhatsAppWidget />
             </SmoothScroll>
         </>
     );

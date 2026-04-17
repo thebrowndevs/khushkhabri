@@ -63,7 +63,7 @@ const AuthDialog = ({ open, onOpenChange }) => {
         setIsGoogleLoading(true);
         setErrorMsg('');
         try {
-            await signIn('google', { callbackUrl: '/user' });
+            await signIn('google');
         } catch (error) {
             console.error('Google login error:', error);
             setErrorMsg('Google login failed. Please try again.');

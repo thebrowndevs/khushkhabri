@@ -4,6 +4,7 @@ import Footer from '@/components/website/common/Footer';
 import ContactSection from '@/components/website/common/ContactSection';
 import ContactHero from '@/components/website/home/ContactHero';
 import SmoothScroll from '@/components/website/common/SmoothScroll';
+import WhatsAppWidget from '@/components/WhatsAppWidget';
 
 export const metadata = {
     title: "Contact Us | Khushkhabri - Digital Invitations",
@@ -61,6 +62,8 @@ export default async function page() {
                     <Footer />
                 </div>
             </div>
+            <WhatsAppWidget />
+
         </SmoothScroll>
     )
 }

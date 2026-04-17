@@ -166,12 +166,13 @@ export default function Footer() {
           <p className="text-gray-500">
             Designed and Developed by{" "}
             <a
-              href="https://www.browndevs.com"
+              // href="https://www.browndevs.com"
+              href="https://brandbabaa.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
             >
-              Brown Devs
+              Brand Babaa
             </a>
           </p>
         </div>

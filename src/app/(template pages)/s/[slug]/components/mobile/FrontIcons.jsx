@@ -7,25 +7,26 @@ export default function FrontIcons() {
 
     const icons = [
         // 🔝 top (rare but important for mix feel)
-        { left: "12%", top: "10%" },
+        // { left: "12%", top: "10%" },
         { left: "82%", top: "14%" },
 
         // 🔼 upper mid
         { left: "5%", top: "30%" },
-        { left: "65%", top: "35%" },
+        // { left: "65%", top: "35%" },
 
         // 🔁 middle (text avoid but slight overlap ok)
         { left: "25%", top: "50%" },
         { left: "85%", top: "55%" },
 
         // 🔽 lower mid
-        { left: "10%", top: "70%" },
+        // { left: "10%", top: "70%" },
         { left: "55%", top: "72%" },
 
         // 🔻 bottom (visual weight)
         { left: "30%", top: "88%" },
         { left: "78%", top: "92%" },
     ];
+
 
     return icons.map((icon, i) => {
         const y = useTransform(

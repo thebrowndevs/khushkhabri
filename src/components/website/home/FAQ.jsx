@@ -7,11 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 const weddingFaqs = [
     {
         question: "How do I create my digital invitation?",
-        ans: "Simply choose a theme from our collection, fill in your wedding details (names, dates, venue), and our system will generate your custom invitation website instantly."
+        ans: "Simply choose a theme, enter your wedding details (names, date, venue), and your invitation website is ready instantly. It’s as easy as filling a simple form—most people finish in under 10 minutes and can share it right away with loved ones."
     },
     {
         question: "Can I customize the themes?",
-        ans: "Yes! You can customize text, add your own photos, and in many themes, you can even adjust colors to match your wedding palette."
+        ans: "Your own photos, and even for more customizatoon you can contact us directly on whatsapp at +91 9990440099."
     },
     {
         question: "Is it possible to add music to the invitation?",
@@ -20,10 +20,6 @@ const weddingFaqs = [
     {
         question: "How do I share the invitation with guests?",
         ans: "Once your invitation is ready, you'll get a unique link. You can share this link via WhatsApp, Email, or any social media platform effortlessly."
-    },
-    {
-        question: "Can guests RSVP through the website?",
-        ans: "Yes, we have a built-in RSVP system. Guests can confirm their attendance, and you can track the guest list directly from your dashboard."
     },
     {
         question: "Are the invitations mobile-friendly?",
@@ -44,6 +40,38 @@ const weddingFaqs = [
     {
         question: "Is my data secure?",
         ans: "We take privacy seriously. Your personal details and your guests' RSVP information are stored securely and are never shared with third parties."
+    },
+    {
+        question: "Will this open like a website?",
+        ans: "Yes. Once published your guests will be able to see your invite like a dynamic website: Interactable, complete with links to venue location, RSVP, and wedding Instagram."
+    },
+    {
+        question: "What if I want to split guests by event?",
+        ans: "The template has an easy provision to create as many event combinations as you need. That way you'll be able to call separate guests to separate events."
+    },
+    {
+        question: "Do I need to know coding to use this?",
+        ans: "Short Answer: Not at all. If you can use Canva or Instagram, you’ll find Framer as easy."
+    },
+    {
+        question: "How long does it take to edit the invite?",
+        ans: "Editing and sharing is super simple—just like filling a form. Add names, family details, events, photos, and links, and you’re ready to go. Most couples finish in just 10–20 minutes."
+    },
+    {
+        question: "How do I get started?",
+        ans: "We provide an 3 minute+ tutorial video to get you started. In brief - You can start with just a computer. Click the template link in your email after purchase—Then click on the tutorial video link in from the same email and simply follow the steps. Sign up, add your photos and text, and hit publish. It’s all free and fully editable—anytime & anywhere."
+    },
+    {
+        question: "How do my guests view the invite?",
+        ans: "Like they view any website—on their phone’s browser, Safari, Chrome or whatever. It opens beautifully like a website on any device."
+    },
+    {
+        question: "Can I make changes after sharing?",
+        ans: "Short Answer: Absolutely. Change anything – venue, timings, any link – even after it’s published, and it updates for everyone instantly, no need to re-share the invite."
+    },
+    {
+        question: "What’s the refund policy?",
+        ans: "Because this is a digital product, all sales are final and non-refundable. Please review the details carefully before purchasing. If you have any questions, feel free to contact us before placing your order."
     }
 ];
 

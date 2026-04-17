@@ -93,18 +93,18 @@ export default function ComparisonTableSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.7, delay: 0.1 }}
-                    className="w-full bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden"
+                    className="w-full bg-white rounded-2xl md:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden"
                 >
-                    <div className="overflow-x-auto">
-                        <table className="w-full min-w-[600px] text-left border-collapse">
+                    <div className="w-full overflow-hidden">
+                        <table className="w-full text-left border-collapse table-fixed">
                             <thead>
                                 <tr className="border-b border-gray-100">
-                                    <th className="py-6 px-6 font-semibold text-gray-800 text-lg w-2/5">Feature</th>
-                                    <th className="py-6 px-4 text-center font-semibold text-gray-500 w-1/5">Printed Cards</th>
-                                    <th className="py-6 px-4 text-center font-semibold text-gray-500 w-1/5">Video Invite</th>
-                                    <th className="py-6 px-4 text-center font-bold text-[#8b2c3c] bg-[#fff5f6] w-1/5 shadow-[inset_0_-2px_0_rgba(139,44,60,0.1)] relative">
+                                    <th className="py-4 md:py-6 px-2 md:px-6 font-semibold text-gray-800 flex-1 text-xs md:text-lg w-[40%]">Feature</th>
+                                    <th className="py-4 md:py-6 px-1 md:px-4 text-center font-semibold text-gray-500 text-[10px] md:text-base w-[20%] leading-tight">Printed Cards</th>
+                                    <th className="py-4 md:py-6 px-1 md:px-4 text-center font-semibold text-gray-500 text-[10px] md:text-base w-[20%] leading-tight">Video Invite</th>
+                                    <th className="py-4 md:py-6 px-1 md:px-4 text-center font-bold text-[#8b2c3c] bg-[#fff5f6] text-[10px] md:text-base w-[20%] shadow-[inset_0_-2px_0_rgba(139,44,60,0.1)] relative leading-tight">
                                         <div className="absolute top-0 left-0 w-full h-1 bg-[#8b2c3c]"></div>
-                                        Khushkhabri DIY
+                                        Khushkhabri <span className="hidden sm:inline">DIY</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -112,12 +112,12 @@ export default function ComparisonTableSection() {
                                 {tableData.map((row, idx) => (
                                     <tr 
                                         key={idx} 
-                                        className={`border-b border-gray-50 text-base sm:text-lg transition-colors hover:bg-gray-50/50 ${idx === tableData.length - 1 ? 'border-b-0' : ''}`}
+                                        className={`border-b border-gray-50 transition-colors hover:bg-gray-50/50 ${idx === tableData.length - 1 ? 'border-b-0' : ''}`}
                                     >
-                                        <td className="py-4 px-6 text-gray-700 font-medium">{row.feature}</td>
-                                        <td className="py-4 px-4 text-center">{renderCell(row.printed)}</td>
-                                        <td className="py-4 px-4 text-center">{renderCell(row.video)}</td>
-                                        <td className="py-4 px-4 text-center bg-[#fff5f6]/60 border-l border-r border-white/50">{renderKhushkhabriCell(row.khushkhabri)}</td>
+                                        <td className="py-3 md:py-4 px-2 md:px-6 text-gray-700 font-medium text-xs md:text-lg break-words">{row.feature}</td>
+                                        <td className="py-3 md:py-4 px-1 md:px-4 text-center scale-75 md:scale-100 text-[10px] md:text-base">{renderCell(row.printed)}</td>
+                                        <td className="py-3 md:py-4 px-1 md:px-4 text-center scale-75 md:scale-100 text-[10px] md:text-base">{renderCell(row.video)}</td>
+                                        <td className="py-3 md:py-4 px-1 md:px-4 text-center bg-[#fff5f6]/60 border-l border-r border-white/50 scale-75 md:scale-100 text-[10px] md:text-base">{renderKhushkhabriCell(row.khushkhabri)}</td>
                                     </tr>
                                 ))}
                             </tbody>

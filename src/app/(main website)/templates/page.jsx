@@ -5,6 +5,7 @@ import Footer from "@/components/website/common/Footer";
 import TemplatesSection from "@/components/website/home/TemplatesSection";
 import ComparisonSection from "@/components/website/home/ComparisonSection";
 import SmoothScroll from "@/components/website/common/SmoothScroll";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export default async function Templates({ params }) {
   return (
@@ -43,6 +44,8 @@ export default async function Templates({ params }) {
           <Footer />
         </div>
       </div>
+      <WhatsAppWidget />
+
     </SmoothScroll>
   );
 }

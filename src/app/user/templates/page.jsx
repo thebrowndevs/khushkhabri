@@ -55,7 +55,7 @@ export default function TemplatesPage() {
             </div>
 
             {paidOrders.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                     {paidOrders.map((order) => {
                         const themeInfo = getThemeByThemeName(order.themeName) || {
                             title: order.themeName,
@@ -64,42 +64,44 @@ export default function TemplatesPage() {
                         };
 
                         return (
-                            <div key={order._id} className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+                            <div key={order._id} className="group bg-white rounded-sm border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-row items-stretch h-36">
                                 {/* Image Container */}
-                                <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50">
+                                <div className="relative w-28 sm:w-32 h-full bg-gray-50 flex-shrink-0 border-r border-gray-100">
                                     <Image
                                         src={themeInfo.image}
                                         alt={themeInfo.title}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                                     />
-                                    <div className="absolute top-3 left-3">
-                                        <span className="bg-white/90 backdrop-blur-md px-2 py-0.5 rounded-full text-[9px] font-bold text-[#8b2c3c] shadow-sm uppercase tracking-wider">
-                                            {themeInfo.category}
+                                    <div className="absolute top-2 left-2">
+                                        <span className="bg-white/90 backdrop-blur-md px-1.5 py-0.5 rounded pl-1 text-[8px] font-bold text-[#8b2c3c] shadow-sm uppercase tracking-widest break-all">
+                                            {themeInfo.category.split(' ')[0]}
                                         </span>
                                     </div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-4 flex flex-col flex-1">
-                                    <h3 className="text-base font-bold text-gray-900 mb-2 line-clamp-1">{themeInfo.title}</h3>
+                                <div className="p-3 sm:p-4 flex flex-col flex-1 min-w-0 justify-between">
+                                    <div>
+                                        <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 truncate">{themeInfo.title}</h3>
 
-                                    <div className="space-y-1.5 mb-4 flex-1">
-                                        <div className="flex items-center gap-2 text-[12px] text-gray-500">
-                                            <Hash size={12} className="text-gray-400" />
-                                            <span className="font-mono">ID: {order.orderId.slice(-8)}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2 text-[12px] text-gray-500">
-                                            <Calendar size={12} className="text-gray-400" />
-                                            <span>{format(new Date(order.createdAt), 'MMM d, yyyy')}</span>
+                                        <div className="space-y-1">
+                                            <div className="flex items-center gap-1.5 text-[11px] text-gray-500 truncate">
+                                                <Hash size={12} className="text-gray-400 shrink-0" />
+                                                <span className="font-mono truncate">ID: {order.orderId.slice(-8)}</span>
+                                            </div>
+                                            <div className="flex items-center gap-1.5 text-[11px] text-gray-500">
+                                                <Calendar size={12} className="text-gray-400 shrink-0" />
+                                                <span>{format(new Date(order.createdAt), 'MMM d, yyyy')}</span>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <Link
                                         href={`/user/templates/${order._id}`}
-                                        className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-[#8b2c3c] transition-all duration-300 group/btn"
+                                        className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 mt-2 bg-gray-900 text-white rounded-sm text-xs font-semibold hover:bg-[#8b2c3c] transition-colors duration-300 group/btn"
                                     >
-                                        <span>Open Template</span>
+                                        <span>Open Editor</span>
                                         <ExternalLink size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                                     </Link>
                                 </div>

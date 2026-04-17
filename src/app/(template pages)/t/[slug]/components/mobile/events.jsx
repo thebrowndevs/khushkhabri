@@ -54,7 +54,7 @@ const eventMeta = {
     anand_karaj: {
         title: "Shaadi",
         image: "/templates/temple/shaadi2.png",
-        icon: "/icons/khanda.png",
+        icon: "/icons/1.png",
     },
     reception: {
         title: "Reception",

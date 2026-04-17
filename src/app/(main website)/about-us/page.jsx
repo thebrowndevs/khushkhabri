@@ -5,6 +5,7 @@ import Footer from "@/components/website/common/Footer";
 import AboutEssence from "@/components/website/home/AboutEssence";
 import AboutHero from "@/components/website/home/AboutHero";
 import SmoothScroll from "@/components/website/common/SmoothScroll";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export default function AboutPage() {
   return (
@@ -43,6 +44,8 @@ export default function AboutPage() {
           <Footer />
         </div>
       </div>
+      <WhatsAppWidget />
+
     </SmoothScroll>
   );
 }

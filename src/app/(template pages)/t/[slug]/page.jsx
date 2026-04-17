@@ -4,6 +4,8 @@ import { connectDB } from "@/lib/mongodb";
 import Invitation from "@/models/invitationModel";
 import { notFound } from "next/navigation";
 import ResponsiveTemplateWrapper from "./components/ResponsiveTemplateWrapper";
+import { DEMO_SLUGS } from "@/lib/constants/demoSlugs";
+import DemoCheckoutButton from "@/components/website/DemoCheckoutButton";
 
 export async function generateMetadata({ params }) {
     const { slug } = await params;
@@ -79,10 +81,15 @@ export default async function TempleTemplatePage({ params }) {
         : "2026-03-26";
 
     return (
-        <ResponsiveTemplateWrapper
-            invitation={JSON.parse(JSON.stringify(invitation))}
-            events={templateEvents}
-            weddingDate={weddingDate}
-        />
+        <>
+            <ResponsiveTemplateWrapper
+                invitation={JSON.parse(JSON.stringify(invitation))}
+                events={templateEvents}
+                weddingDate={weddingDate}
+            />
+            {DEMO_SLUGS.includes(slug) && (
+                <DemoCheckoutButton themeName={invitation.themeName} />
+            )}
+        </>
     );
 }

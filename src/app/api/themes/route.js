@@ -6,7 +6,7 @@ import Theme from "@/models/themeModel";
 export async function GET() {
   await connectDB();
   try {
-    const themes = await Theme.find({ isActive: true }).select("name price");
+    const themes = await Theme.find({ isActive: true }).select("name originalPrice discountedPrice");
     return NextResponse.json({ themes }, { status: 200 });
   } catch (err) {
     console.error("Fetch themes error:", err);

@@ -38,7 +38,7 @@ export default async function TemplatePage({ params, searchParams }) {
     if (!orderDoc) return null; // handled below
 
     const allInvitesRaw = await Invitation.find({ order: orderId }).sort({ createdAt: -1 }).lean();
-    
+
     // Ensure plain objects for serialization
     const order = JSON.parse(JSON.stringify(orderDoc));
     const allInvites = JSON.parse(JSON.stringify(allInvitesRaw));
@@ -70,10 +70,11 @@ export default async function TemplatePage({ params, searchParams }) {
     };
 
     const isSatsang = themeInfo.category === "Guruji Satsang" || order.themeName === "guruji1";
+    const isEditing = !!inviteId && !!existingInvite;
 
     return (
         <InnerDashboardLayout>
-            <div className="max-w-4xl mx-auto space-y-6 pb-20">
+            <div className="max-w-4xl mx-auto space-y-3 pb-2">
                 {/* Navigation Header */}
                 <div className="flex items-center justify-between mt-3">
                     <Link href="/user/templates" className="group flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors">
@@ -83,97 +84,108 @@ export default async function TemplatePage({ params, searchParams }) {
                 </div>
 
                 {/* Main Header Card */}
-                <div className="bg-white rounded-[40px] shadow-sm border border-gray-100 overflow-hidden">
-                    <div className="flex flex-col md:flex-row">
-                        {/* Theme Preview Image */}
-                        <div className="w-full md:w-1/3 aspect-[3/4] relative bg-gray-50 border-r border-gray-100">
-                            <Image
-                                src={themeInfo.image}
-                                alt={themeInfo.title}
-                                fill
-                                className="object-cover"
-                            />
-                            <div className="absolute top-6 left-6">
-                                <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-[#8b2c3c] shadow-sm uppercase tracking-wider">
-                                    {themeInfo.category}
+                <div className="bg-white rounded-sm md:rounded-sm shadow-sm border border-gray-100 overflow-hidden">
+                    {/* MOBILE LAYOUT */}
+                    <div className="sm:hidden flex items-center justify-between p-3 gap-3">
+                        <div className="flex items-center gap-3 min-w-0 overflow-hidden">
+                            {/* Tiny Thumbnail */}
+                            <div className="w-10 h-14 relative bg-gray-50 border border-gray-100 rounded-sm overflow-hidden shrink-0">
+                                <Image src={themeInfo.image} alt={themeInfo.title} fill className="object-cover" />
+                            </div>
+
+                            {/* Info */}
+                            <div className="flex flex-col min-w-0 justify-center">
+                                <h1 className="text-[13px] font-bold text-gray-900 truncate mb-0.5">{themeInfo.title}</h1>
+                                <div className="text-[9px] text-gray-500 font-mono truncate mb-1">
+                                    <span>#{order.orderId.slice(-6)}</span> <span className="mx-1 text-gray-300">•</span> <span>{format(new Date(order.createdAt), 'MMM d, yy')}</span>
+                                </div>
+                                <span className="w-max bg-gray-50 border border-gray-100 px-1 py-[2px] rounded text-[8px] font-bold text-[#8b2c3c] uppercase tracking-wider">
+                                    {themeInfo.category.split(' ')[0]}
                                 </span>
                             </div>
                         </div>
 
-                        {/* Order & Theme Info */}
-                        <div className="flex-1 p-8 md:p-12 flex flex-col justify-center">
-                            <div className="mb-8">
-                                <h1 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
-                                    {themeInfo.title}
-                                </h1>
-                                <p className="text-gray-500 text-lg leading-relaxed max-w-md">
-                                    {themeInfo.description}
-                                </p>
+                        {/* Button */}
+                        <a
+                            href={themeInfo.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="shrink-0 px-3 py-1.5 bg-white text-[#8b2c3c] border border-[#8b2c3c] rounded-sm font-bold text-[10px] hover:bg-[#8b2c3c] hover:text-white transition-all shadow-sm"
+                        >
+                            Preview
+                        </a>
+                    </div>
+
+                    {/* DESKTOP LAYOUT */}
+                    <div className="hidden sm:flex items-center justify-between p-4 gap-6">
+                        <div className="flex items-center gap-5 min-w-0 overflow-hidden">
+                            {/* Small Thumbnail instead of Huge Image */}
+                            <div className="w-16 h-20 relative bg-gray-50 border border-gray-100 rounded-sm overflow-hidden shrink-0 shadow-sm">
+                                <Image src={themeInfo.image} alt={themeInfo.title} fill className="object-cover" />
                             </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 bg-gray-50 rounded-3xl border border-gray-100 mb-8">
-                                <div className="space-y-1">
-                                    <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold flex items-center gap-1.5">
-                                        <Hash size={12} /> Order ID
-                                    </p>
-                                    <p className="font-mono text-gray-700 font-medium">#{order.orderId}</p>
+                            {/* Info */}
+                            <div className="flex flex-col min-w-0 justify-center">
+                                <div className="flex items-center gap-3 mb-1.5">
+                                    <h1 className="text-lg font-bold text-gray-900 truncate">{themeInfo.title}</h1>
+                                    <span className="bg-gray-50 border border-gray-100 px-2 py-0.5 rounded text-[10px] font-bold text-[#8b2c3c] uppercase tracking-wider">
+                                        {themeInfo.category}
+                                    </span>
                                 </div>
-                                <div className="space-y-1">
-                                    <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold flex items-center gap-1.5">
-                                        <Calendar size={12} /> Purchase Date
-                                    </p>
-                                    <p className="text-gray-700 font-medium">{format(new Date(order.createdAt), 'MMMM d, yyyy')}</p>
+                                <div className="flex items-center gap-4 text-xs text-gray-500 font-medium">
+                                    <div className="flex items-center gap-1.5 font-mono">
+                                        <Hash size={12} className="text-gray-400" />
+                                        #{order.orderId}
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <Calendar size={12} className="text-gray-400" />
+                                        {format(new Date(order.createdAt), 'MMMM d, yyyy')}
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div className="flex flex-wrap gap-4">
-                                <a 
-                                    href={themeInfo.demoUrl} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="px-8 py-4 bg-white text-[#8b2c3c] border-2 border-[#8b2c3c] rounded-2xl font-bold hover:bg-[#8b2c3c] hover:text-white transition-all flex items-center justify-center grow"
-                                >
-                                    View Live Demo
-                                </a>
                             </div>
                         </div>
+
+                        {/* Button */}
+                        <a
+                            href={themeInfo.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="shrink-0 px-5 py-2.5 bg-white text-[#8b2c3c] border-2 border-[#8b2c3c] rounded-lg font-bold text-sm hover:bg-[#8b2c3c] hover:text-white transition-all shadow-sm flex items-center justify-center whitespace-nowrap"
+                        >
+                            View Live Demo
+                        </a>
                     </div>
                 </div>
 
-                {/* Form Section */}
+                {/* Dynamic Content Section */}
                 {isSatsang ? (
                     <SatsangInviteForm order={order} existingInvite={existingInvite} />
+                ) : isEditing ? (
+                    <div className="space-y-2">
+                        <div className="pt-2 pb-6 border-b border-gray-100 flex items-center justify-between">
+                            <div>
+                                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Edit Custom Invitation</h3>
+                                <p className="text-sm text-gray-500">Focus mode: update event details and side selection.</p>
+                            </div>
+                        </div>
+                        <CustomizationForm invitation={existingInvite} orderId={order._id} />
+                    </div>
                 ) : (
                     <>
                         <InviteForm order={order} />
 
-                        {/* Customizations Section */}
-                        {order.mainDetails && (
-                            <div className="space-y-12 pt-10 border-t border-gray-100">
-                                <InvitationList invitations={allInvites} />
-                                
-                                {allInvites.length === 0 && (
-                                    <div className="bg-gray-50 border-2 border-dashed border-gray-100 rounded-[40px] p-12 text-center">
-                                        <p className="text-gray-400 font-medium">No Invitations yet. Click "Create Invitation" above to start.</p>
-                                    </div>
-                                )}
-
-                                {inviteId && existingInvite && (
-                                    <div className="pt-10 border-t border-gray-100">
-                                        <div className="mb-8">
-                                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Edit Invitation</h3>
-                                            <p className="text-gray-500">Update event details and side selection for this invitation.</p>
-                                        </div>
-                                        <CustomizationForm invitation={existingInvite} orderId={order._id} />
-                                    </div>
-                                )}
-                            </div>
-                        )}
+                        <div className="space-y-4 md:space-y-6 mt-1 md:mt-1">
+                            <InvitationList
+                                invitations={allInvites}
+                                orderId={order._id}
+                                isDisabled={!order.mainDetails}
+                            />
+                        </div>
                     </>
                 )}
 
                 {/* Status Indicator */}
-                <div className="flex items-center justify-center gap-2 text-[12px] font-bold text-green-600 bg-green-50 w-max mx-auto px-4 py-1.5 rounded-full border border-green-100 uppercase tracking-widest">
+                <div className="flex items-center justify-center gap-2 text-[12px] font-bold text-green-600 bg-green-50 w-max mx-auto px-4 rounded-full border border-green-100 uppercase tracking-widest">
                     <ShieldCheck size={14} />
                     Verified Paid Template
                 </div>

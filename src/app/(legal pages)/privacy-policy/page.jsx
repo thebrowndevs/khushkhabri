@@ -4,6 +4,7 @@ import { getPrivacyPolicy } from "@/lib/main/getStaticData";
 import ReactMarkdown from 'react-markdown';
 import styles from './components/post.module.css';
 import rehypeRaw from 'rehype-raw';
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export const metadata = {
     title: "Privacy Policy | Khushkhabri - Digital Invitations",
@@ -82,6 +83,8 @@ export default async function page() {
 
                 <Footer />
             </div>
+            <WhatsAppWidget />
+
         </div>
     )
 }

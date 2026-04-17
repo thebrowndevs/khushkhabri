@@ -15,7 +15,7 @@ export default function HeroSection2() {
     ];
 
     return (
-        <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden py-8 md:py-0">
+        <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden py-8 xl:py-0">
             {/* Background Accents */}
             <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#8b2c3c]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />

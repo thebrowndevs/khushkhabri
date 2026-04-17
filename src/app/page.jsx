@@ -12,6 +12,8 @@ import ComparisonTableSection from "@/components/website/home/ComparisonTableSec
 import FeatureVisualSection from "@/components/website/home/FeatureVisualSection";
 import HowItWorksSection from "@/components/website/home/HowItWorksSection";
 import SmoothScroll from "@/components/website/common/SmoothScroll";
+import FeaturedBy from "@/components/website/home/FeaturedBy";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export default async function Home() {
   return (
@@ -32,6 +34,7 @@ export default async function Home() {
           <div className="flex flex-col min-h-[100dvh] sm:min-h-[100vh]">
             <NavBar />
             <HeroSection2 />
+            <FeaturedBy />
           </div>
 
           {/* Templates Section */}
@@ -45,7 +48,9 @@ export default async function Home() {
             }}
           >
             {/* Comparison Section (Boring vs Digital) */}
-            <ComparisonSection />
+            <div className="hidden sm:block">
+              <ComparisonSection />
+            </div>
 
             {/* Comparison Table Section (Detailed features) */}
             <ComparisonTableSection />
@@ -67,6 +72,8 @@ export default async function Home() {
           <Footer />
         </div>
       </div>
+      <WhatsAppWidget />
+
     </SmoothScroll>
   );
 }
