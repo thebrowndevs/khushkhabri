@@ -17,7 +17,7 @@ export const THEMES = [
         description: "Luxurious theme with grand palace architecture.",
         image: "/images/invite2.png",
         mobileImage: "/images/2.png",
-        demoUrl: "/r/aarav-weds-saanvi-cwx",
+        demoUrl: "/r/aarav-weds-saanvi-auq",
     },
     {
         id: 3,
