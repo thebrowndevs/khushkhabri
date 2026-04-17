@@ -107,12 +107,14 @@ export async function POST(req) {
   try {
     const { themeName } = await req.json();
 
-    const theme = await Theme.findOne({ name: themeName, isActive: true });
+    const theme = await Theme.findOne({ name: themeName, isActive: true }).lean();
     if (!theme) {
       return NextResponse.json({ error: "Theme not found" }, { status: 404 });
     }
 
-    const amount = theme.price;
+    console.log("Theme found:", JSON.stringify(theme));
+    const amount = theme.discountedPrice || theme.originalPrice || 4000;
+    console.log("Amount (paise):", Math.round(amount * 100));
 
     const razorpayOrder = await razorpay.orders.create({
       amount: Math.round(amount * 100),
@@ -130,6 +132,7 @@ export async function POST(req) {
     });
 
   } catch (err) {
-    return NextResponse.json({ error: "Failed to create order" }, { status: 500 });
+    console.error("Theme order creation error:", err);
+    return NextResponse.json({ error: `Failed to create order: ${err?.message || JSON.stringify(err)}` }, { status: 500 });
   }
 }

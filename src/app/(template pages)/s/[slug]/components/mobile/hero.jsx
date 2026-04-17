@@ -15,12 +15,14 @@ export default function Hero({ invitation }) {
 
             {/* ✅ MAIN IMAGE (NOT BACKGROUND) */}
             <Image
-                src="/templates/sikh/hero24.png"
+                src="/templates/sikh/hero24.webp"
                 alt="bg"
                 width={1920}
                 height={1080}
                 className="w-full h-auto object-cover"
                 priority
+                quality={75}
+                sizes="100vw"
             />
 
             {/* ✅ OVERLAY CONTENT */}
