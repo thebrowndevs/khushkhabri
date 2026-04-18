@@ -25,19 +25,19 @@ export default function HowItWorksSection() {
     const steps = [
         {
             id: "01",
-            icon: <PaintbrushIcon />,
+            gif: "/images/template selection.gif",
             title: "Choose Template",
             desc: "Browse templates made for your wedding tradition and pick a design you love."
         },
         {
             id: "02",
-            icon: <FormIcon />,
+            gif: "/images/template edit.gif",
             title: "Add Your Details",
             desc: "Names, events, photos — everything is easily customizable with no coding required."
         },
         {
             id: "03",
-            icon: <ShareIcon />,
+            gif: "/images/share.gif",
             title: "Publish & Share",
             desc: "Get your unique hosted link (e.g., khushkhabri.in/yours) and send it on WhatsApp to guests instantly.",
             highlight: "No hosting or tech skills needed!"
@@ -63,7 +63,7 @@ export default function HowItWorksSection() {
                 </motion.div>
 
                 {/* Steps Container */}
-                <div className="flex flex-col md:flex-row justify-center items-start gap-8 lg:gap-12 w-full mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 w-full mb-16">
                     {steps.map((step, index) => (
                         <motion.div 
                             key={step.id}
@@ -71,27 +71,47 @@ export default function HowItWorksSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.7, delay: index * 0.2 }}
-                            className="flex flex-col flex-1 items-center text-center relative max-w-sm mx-auto group"
+                            className="flex flex-col items-center text-center group"
                         >
-                            {/* Step Number Background */}
-                            <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-7xl font-sans font-bold text-[#F7E7CE] opacity-30 select-none z-0">
-                                {step.id}
-                            </div>
-                            
-                            {/* Icon Circle */}
-                            <div className="w-24 h-24 rounded-full bg-white border border-[#F7E7CE] flex items-center justify-center shadow-[0_8px_30px_rgba(218,174,150,0.15)] mb-6 z-10 group-hover:scale-105 transition-transform duration-500">
-                                {step.icon}
+                            {/* GIF Container with Mockup-style frame */}
+                            <div className="relative w-full aspect-square mb-8 rounded-2xl overflow-hidden bg-white border border-[#F7E7CE]/60 shadow-[0_20px_50px_rgba(218,174,150,0.15)] group-hover:shadow-[0_25px_60px_rgba(218,174,150,0.25)] transition-all duration-500">
+                                {/* Step Number Badge */}
+                                <div className="absolute top-4 left-4 bg-[#8b2c3c] text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center z-10 shadow-lg">
+                                    {step.id}
+                                </div>
+                                
+                                {/* The GIF */}
+                                <img 
+                                    src={step.gif} 
+                                    alt={step.title}
+                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    loading="lazy"
+                                />
+                                
+                                {/* Decorative Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#5a1e2b]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </div>
                             
                             {/* Content */}
-                            <h3 className="text-xl font-semibold text-[#5a1e2b] mb-3 z-10">{step.title}</h3>
-                            <p className="text-gray-600 text-sm leading-relaxed z-10">
+                            <h3 className="text-2xl font-bold text-[#5a1e2b] mb-4 group-hover:text-[#8b2c3c] transition-colors">
+                                {step.title}
+                            </h3>
+                            <p className="text-gray-600 text-base leading-relaxed mb-4 max-w-[280px]">
                                 {step.desc}
                             </p>
+                            
                             {step.highlight && (
-                                <p className="text-[#8b2c3c] font-medium text-xs mt-3 bg-[#fff5f6] px-3 py-1 rounded-full border border-[#8b2c3c]/20 z-10">
+                                <motion.div 
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    className="inline-flex items-center gap-2 text-[#8b2c3c] font-semibold text-xs bg-[#fff5f6] px-4 py-2 rounded-full border border-[#8b2c3c]/10 shadow-sm"
+                                >
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b2c3c] opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b2c3c]"></span>
+                                    </span>
                                     {step.highlight}
-                                </p>
+                                </motion.div>
                             )}
                         </motion.div>
                     ))}

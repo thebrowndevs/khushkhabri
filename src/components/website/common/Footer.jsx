@@ -118,17 +118,17 @@ export default function Footer() {
                   href="mailto:khushkhabri@gmail.com"
                   className="hover:text-white transition"
                 >
-                  khushkhabri@gmail.com
+                  info@khushkhabri.in
                 </a>
               </div>
 
               <div className="flex justify-center md:justify-end items-center gap-2">
                 <FiPhone />
                 <a
-                  href="tel:+918878789898"
+                  href="tel:+919990440099"
                   className="hover:text-white transition"
                 >
-                  +91 8878789898
+                  +91 9990440099
                 </a>
               </div>
 
