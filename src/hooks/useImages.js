@@ -24,7 +24,7 @@ export const useImages = () => {
     });
 
     const uploadImage = useMutation({
-        mutationFn: (data) => api.post('/images', data),
+        mutationFn: (formData) => api.post('/r2-presign-put', formData),
         enabled: canAdd,
         onSuccess: () => {
             queryClient.invalidateQueries(['images']);

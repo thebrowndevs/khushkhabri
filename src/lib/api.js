@@ -4,9 +4,6 @@ import { getSession, signOut } from 'next-auth/react';
 
 const api = axios.create({
     baseURL: '/api',
-    headers: {
-        'Content-Type': 'application/json',
-    },
 });
 
 // Request interceptor - Add auth token

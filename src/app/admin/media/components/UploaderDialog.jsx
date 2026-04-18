@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { useImages } from '@/hooks/useImages';
-import { convertToBase64 } from '@/lib/services/convertToBase64';
 import { FolderUp, Loader2 } from 'lucide-react';
 
 export default function UploaderDialog({ open, onOpenChange, onUploadSuccess }) {
@@ -29,10 +28,10 @@ export default function UploaderDialog({ open, onOpenChange, onUploadSuccess }) 
 
     const handleFileChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
-        const validFiles = selectedFiles.filter(file => file.size <= 2048 * 1024);
+        const validFiles = selectedFiles.filter(file => file.size <= 50 * 1024 * 1024);
 
         if (validFiles.length !== selectedFiles.length) {
-            alert('Some files exceed 2048KB (2MB) and were skipped.');
+            alert('Some files exceed 50MB and were skipped.');
         }
 
         setFiles(validFiles);
@@ -49,14 +48,14 @@ export default function UploaderDialog({ open, onOpenChange, onUploadSuccess }) 
         if (!files.length) return alert("Please select images first.");
 
         try {
-            const base64Images = await Promise.all(
-                files.map(file => convertToBase64(file))
-            );
-
             const results = await Promise.all(
-                base64Images.map(base64 =>
-                    uploadImageAsync({ image: base64 })
-                )
+                files.map(file => {
+                    const formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("userId", "admin");
+                    formData.append("type", "images");
+                    return uploadImageAsync(formData);
+                })
             );
 
             const uploadedUrls = results.map(res => res.imageURL);
@@ -118,7 +117,7 @@ export default function UploaderDialog({ open, onOpenChange, onUploadSuccess }) 
                                 <div className="bg-gray-50 p-4 rounded-lg shadow-sm space-y-2 max-h-96 overflow-y-auto">
                                     {files.map((file, i) => (
                                         <div key={i} className="border-b pb-2 mb-2 last:border-none last:pb-0 last:mb-0">
-                                            <p className="text-sm font-medium text-gray-800">📁 {file.name}</p>
+                                            <p className="text-sm font-medium text-gray-800 break-all">📁 {file.name}</p>
                                             <p className="text-xs text-gray-600">Size: {Math.round(file.size / 1024)} KB</p>
                                         </div>
                                     ))}
