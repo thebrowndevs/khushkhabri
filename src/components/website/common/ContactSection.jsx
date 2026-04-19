@@ -87,7 +87,7 @@ export default function ContactSection({bgColor}) {
                     <FaEnvelope className="text-[#7a2535] text-lg" />
                   </div>
                   <a href="mailto:khushkhabari@gmail.com" className="hover:text-[#7a2535] transition-colors">
-                    khushkhabari@gmail.com
+                    info@khushkhabri.in
                   </a>
                 </div>
 
@@ -96,7 +96,7 @@ export default function ContactSection({bgColor}) {
                     <FaPhone className="text-[#7a2535] text-lg" />
                   </div>
                   <a href="tel:+918878789898" className="hover:text-[#7a2535] transition-colors">
-                    +91 8878789898
+                    +91 9990440099
                   </a>
                 </div>
               </div>
