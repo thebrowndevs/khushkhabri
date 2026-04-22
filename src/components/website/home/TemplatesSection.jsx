@@ -144,7 +144,7 @@ export default function TemplatesSection() {
             <section className="relative w-full pt-20 pb-0 px-4 sm:px-8">
                 <div className="max-w-5xl mx-auto relative z-10">
                     <div className="text-center mb-16">
-                        <motion.h2
+                        <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -152,7 +152,7 @@ export default function TemplatesSection() {
                             className="text-3xl sm:text-5xl font-semibold text-[#5a1e2b] tracking-tighter max-w-3xl mx-auto"
                         >
                             Choose a Design Your Family Will Be Proud to Share
-                        </motion.h2>
+                        </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}

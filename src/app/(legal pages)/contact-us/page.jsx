@@ -7,16 +7,16 @@ import SmoothScroll from '@/components/website/common/SmoothScroll';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
 
 export const metadata = {
-    title: "Contact Us | Khushkhabri - Digital Invitations",
+    title: "Contact Us | Khushkhabri - Digital Invitations Support",
     description:
-        "Get in touch with Khushkhabri for any queries about digital invitations, wedding planning, event management, or custom e-invite solutions.",
+        "Get in touch with Khushkhabri for any queries about digital invitations, wedding planning websites, or custom e-invite solutions. We're here to help you share your joy.",
     keywords: [
         "Contact Khushkhabri",
         "Digital Invitation Support",
-        "Wedding Planning Help",
-        "E-Invite Assistance",
-        "Event Management Support",
-        "Custom Invitation Queries"
+        "Wedding Website Help",
+        "E-Invite Assistance India",
+        "Custom Invitation Queries",
+        "Khushkhabri Customer Care"
     ],
     alternates: {
         canonical: "https://khushkhabri.in/contact-us",
@@ -24,14 +24,26 @@ export const metadata = {
     openGraph: {
         title: "Contact Us - Khushkhabri",
         description:
-            "Get in touch with Khushkhabri for any queries about digital invitations and event planning.",
+            "Get in touch with Khushkhabri for support with your digital invitations and wedding websites.",
         url: "https://khushkhabri.in/contact-us",
+        siteName: "Khushkhabri",
+        locale: "en_IN",
         type: "website",
+        images: [
+            {
+                url: "/logo.png",
+                width: 1200,
+                height: 630,
+                alt: "Contact Khushkhabri",
+            },
+        ],
     },
     twitter: {
+        card: "summary_large_image",
         title: "Contact Us - Khushkhabri",
         description:
             "Get in touch with Khushkhabri for any queries about digital invitations.",
+        images: ["/logo.png"],
     },
 };
 

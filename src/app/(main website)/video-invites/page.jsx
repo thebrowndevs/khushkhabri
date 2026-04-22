@@ -8,9 +8,42 @@ import DemoVideosSection from "@/components/website/video-invites/DemoVideosSect
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export const metadata = {
-  title: 'Video Invitations | Khushkhabri',
-  description: 'Premium designed video invitations tailored to your unique requirements. Crafted by experts in multiple languages.',
-}
+  title: "Premium Video Invitations | Khushkhabri Custom Invites",
+  description:
+    "Expertly crafted premium video invitations tailored to your unique requirements. High-quality caricature and traditional video invites in multiple languages.",
+  keywords: [
+    "Premium Video Invites",
+    "Caricature Video Invitations",
+    "Custom Wedding Video Invites",
+    "Multilingual Video Invitations",
+    "Personalized E-invites",
+  ],
+  alternates: {
+    canonical: "https://khushkhabri.in/video-invites",
+  },
+  openGraph: {
+    title: "Premium Video Invitations - Khushkhabri",
+    description: "Expertly crafted video invitations for weddings and events.",
+    url: "https://khushkhabri.in/video-invites",
+    siteName: "Khushkhabri",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Khushkhabri Video Invitations",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Premium Video Invitations | Khushkhabri",
+    description: "Expertly crafted video invitations for your special day.",
+    images: ["/logo.png"],
+  },
+};
 
 export default function VideoInvitesPage() {
   return (

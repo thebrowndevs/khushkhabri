@@ -13,6 +13,7 @@ export default async function sitemap() {
         "/templates",
         "/blogs",
         "/contact-us",
+        "/video-invites",
     ].map((route) => ({
         url: `${siteUrl}${route}`,
         lastModified: new Date(),

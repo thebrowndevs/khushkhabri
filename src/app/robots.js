@@ -5,7 +5,7 @@ export default function robots() {
         rules: {
             userAgent: "*",
             allow: "/",
-            disallow: ["/admin", "/api"],
+            disallow: ["/admin", "/api", "/user"],
         },
         sitemap: "https://khushkhabri.in/sitemap.xml",
     };

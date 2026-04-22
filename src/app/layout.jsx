@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Poppins, Montserrat, DM_Sans, Anton } from "next/font/google";
 import AuthProvider from "@/components/auth/AuthProvider";
+import Script from "next/script";
 
 const dmSans = DM_Sans({
   variable: "--font-sans",
@@ -83,39 +84,35 @@ export default function RootLayout({ children }) {
       <head>
 
         {/* Structured Data for Brand Authority */}
-        {/* <script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Brown Devs",
-              url: "https://www.browndevs.com",
-              logo: "https://www.browndevs.com/logo.png",
+              name: "Khushkhabri",
+              url: "https://khushkhabri.in",
+              logo: "https://khushkhabri.in/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91 8744043846",
+                telephone: "+91 9990440099",
                 contactType: "customer service",
                 areaServed: "IN",
                 availableLanguage: "English",
-              },
-              sameAs: [
-                "https://www.instagram.com/browndevs/",
-                "https://www.facebook.com/profile.php?id=61585235426498",
-              ],
+              }
             }),
           }}
-        /> */}
+        />
 
-        {/* <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "vakozime05");
+    })(window, document, "clarity", "script", "wf6nd6ufsm");
   `}
-        </Script> */}
+        </Script>
 
       </head>
       <body
@@ -130,19 +127,19 @@ export default function RootLayout({ children }) {
         </div> */}
 
         {/* <ContactWidget /> */}
-        {/* <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-5P3F6NRSWS"
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GJ9BGPR68N"
           strategy="afterInteractive"
-        /> */}
+        />
 
-        {/* <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){window.dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5P3F6NRSWS');
+    gtag('config', 'G-GJ9BGPR68N');
   `}
-        </Script> */}
+        </Script>
       </body>
     </html>
   );
