@@ -12,7 +12,7 @@ export default function ComparisonSection() {
                 return (
                     <motion.img
                         key={`comp-petal-${i}`}
-                        src={i % 3 === 0 ? "/icons/13.png" : "/icons/15.png"}
+                        src={i % 3 === 0 ? "/icons/13.webp" : "/icons/15.webp"}
                         className={`absolute w-6 sm:w-10 pointer-events-none z-0 opacity-40 ${isLeft ? "left-[10%] sm:left-[20%]" : "right-[10%] sm:right-[20%]"}`}
                         initial={{
                             y: -100 - Math.random() * 100,
@@ -35,13 +35,13 @@ export default function ComparisonSection() {
 
             {/* 🌿 FLOATING LEAVES */}
             <motion.img
-                src="/icons/16.png"
+                src="/icons/16.webp"
                 className="absolute left-4 sm:left-10 top-32 w-16 sm:w-20 opacity-40 pointer-events-none z-0"
                 animate={{ y: [-10, 15, -10], rotate: [-5, 5, -5] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-                src="/icons/14.png"
+                src="/icons/14.webp"
                 className="absolute right-8 sm:right-16 top-64 w-12 sm:w-16 opacity-40 pointer-events-none z-0 hidden lg:block"
                 animate={{ y: [10, -15, 10], rotate: [5, -10, 5] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -49,13 +49,13 @@ export default function ComparisonSection() {
 
             {/* ✉️ MAIL ICONS */}
             <motion.img
-                src="/icons/17.png"
+                src="/icons/17.webp"
                 className="absolute left-6 sm:left-24 bottom-30 w-14 sm:w-20 opacity-60 pointer-events-none z-0"
                 animate={{ y: [-15, 10, -15], rotate: [-10, 8, -10] }}
                 transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-                src="/icons/18.png"
+                src="/icons/18.webp"
                 className="absolute right-4 sm:right-20 top-20 sm:top-24 w-14 sm:w-24 opacity-60 pointer-events-none z-0"
                 animate={{ y: [15, -10, 15], rotate: [12, -8, 12] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
@@ -63,13 +63,13 @@ export default function ComparisonSection() {
 
             {/* 🌺 CORNER SINGLE FLOWERS */}
             <motion.img
-                src="/icons/3.png"
+                src="/icons/3.webp"
                 className="absolute -left-6 top-1/2 w-20 sm:w-28 opacity-80 pointer-events-none z-0"
                 animate={{ rotate: [-5, 5, -5] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-                src="/icons/4.png"
+                src="/icons/4.webp"
                 className="absolute -right-6 bottom-20 w-20 sm:w-28 opacity-70 pointer-events-none z-0"
                 animate={{ rotate: [5, -5, 5] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -152,7 +152,7 @@ export default function ComparisonSection() {
                                 whileHover={{ scale: 1.03 }}
                                 className="relative w-full max-w-[220px] sm:w-1/3 aspect-[3/4] rounded-xl shadow-md overflow-hidden border-[3px] border-white bg-pink-50"
                             >
-                                <Image src="/images/invite1.png" alt="Digital Invite 1" fill className="object-cover" />
+                                <Image src="/images/invite1.webp" alt="Digital Invite 1" fill className="object-cover" />
                             </motion.div>
 
                             {/* Image 2 */}
@@ -162,7 +162,7 @@ export default function ComparisonSection() {
                                 whileHover={{ scale: 1.03 }}
                                 className="relative w-full max-w-[220px] sm:w-1/3 aspect-[3/4] rounded-xl shadow-lg border-[3px] border-white overflow-hidden bg-pink-100"
                             >
-                                <Image src="/images/invite2.png" alt="Digital Invite 2" fill className="object-cover" />
+                                <Image src="/images/invite2.webp" alt="Digital Invite 2" fill className="object-cover" />
                             </motion.div>
 
                             {/* Image 3 */}
@@ -172,7 +172,7 @@ export default function ComparisonSection() {
                                 whileHover={{ scale: 1.03 }}
                                 className="relative w-full max-w-[220px] sm:w-1/3 aspect-[3/4] rounded-xl shadow-md overflow-hidden border-[3px] border-white bg-pink-200"
                             >
-                                <Image src="/images/invite3.png" alt="Digital Invite 3" fill className="object-cover" />
+                                <Image src="/images/invite3.webp" alt="Digital Invite 3" fill className="object-cover" />
                             </motion.div>
                         </div>
 

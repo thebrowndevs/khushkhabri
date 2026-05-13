@@ -39,7 +39,7 @@ export default function FrontIcons() {
         return (
             <motion.img
                 key={i}
-                src="/icons/34.png"
+                src="/icons/34.webp"
                 style={{
                     position: "absolute",
                     left: icon.left,

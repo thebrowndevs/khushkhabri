@@ -200,16 +200,18 @@ export default function SatsangInviteForm({ order, existingInvite }) {
                 </div>
             )}
 
-            <div className="bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden p-5 md:p-8">
+            <div className="bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden p-2 md:p-2">
+
+
                 <div
-                    className={`flex justify-between items-center cursor-pointer group ${isExpanded ? 'mb-6 md:mb-8' : ''}`}
+                    className={`flex justify-between items-center cursor-pointer group p-4 md:p-6 bg-[#8b2c3c]/5 rounded-sm hover:bg-[#8b2c3c]/10 transition-all ${isExpanded ? 'mb-6 md:mb-8' : ''}`}
                     onClick={() => setIsExpanded(!isExpanded)}
                 >
                     <div>
                         <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-1 group-hover:text-[#8b2c3c] transition-colors">Satsang Details</h2>
                         <p className="text-xs md:text-sm text-gray-500">Fill in the details for your Guruji Satsang invitation. Once saved, your shareable link will be generated automatically.</p>
                     </div>
-                    <button type="button" className="p-2 md:p-2.5 bg-gray-50 hover:bg-[#8b2c3c]/10 text-gray-400 hover:text-[#8b2c3c] rounded-sm transition-colors shrink-0">
+                    <button type="button" className="p-2.5 md:p-3 bg-[#8b2c3c] text-white rounded-sm transition-transform duration-300 shadow-md shrink-0">
                         {isExpanded ? <ChevronUp size={20} className="md:w-6 md:h-6" /> : <ChevronDown size={20} className="md:w-6 md:h-6" />}
                     </button>
                 </div>
@@ -309,9 +311,11 @@ export default function SatsangInviteForm({ order, existingInvite }) {
                                                     <label className="block text-xs font-semibold text-gray-500 mb-1">Phone Number</label>
                                                     <input
                                                         type="text"
+                                                        inputMode="numeric"
+                                                        maxLength="10"
                                                         value={contact.phone}
-                                                        onChange={(e) => handleContactChange(index, 'phone', e.target.value)}
-                                                        placeholder="+91 9876543210"
+                                                        onChange={(e) => handleContactChange(index, 'phone', e.target.value.replace(/\D/g, ''))}
+                                                        placeholder="9876543210"
                                                         className="w-full px-3 py-2 bg-white border border-gray-200 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all text-sm"
                                                     />
                                                 </div>
@@ -410,7 +414,7 @@ export default function SatsangInviteForm({ order, existingInvite }) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div className="space-y-4">
                                                 <div className="space-y-2">
                                                     <input

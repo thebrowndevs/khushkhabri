@@ -11,16 +11,16 @@ import "swiper/css/free-mode";
 import "swiper/css/autoplay";
 
 const logos = [
-    "/newsLogo/1.png",
-    "/newsLogo/2.png",
-    "/newsLogo/3.png",
-    "/newsLogo/4.png",
-    "/newsLogo/5.png",
-    "/newsLogo/6.png",
-    "/newsLogo/7.png",
-    "/newsLogo/8.png",
-    "/newsLogo/9.png",
-    "/newsLogo/10.png",
+    "/newsLogo/1.webp",
+    "/newsLogo/2.webp",
+    "/newsLogo/3.webp",
+    "/newsLogo/4.webp",
+    "/newsLogo/5.webp",
+    "/newsLogo/6.webp",
+    "/newsLogo/7.webp",
+    "/newsLogo/8.webp",
+    "/newsLogo/9.webp",
+    "/newsLogo/10.webp",
 ];
 
 const FeaturedBy = () => {

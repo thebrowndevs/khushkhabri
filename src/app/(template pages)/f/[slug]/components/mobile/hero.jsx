@@ -20,7 +20,7 @@ export default function Hero({ invitation }) {
                 className="w-full h-auto object-cover"
             /> */}
             <Image
-                src="/templates/floral/hero2.png"
+                src="/templates/floral/hero2.webp"
                 alt="bg"
                 width={1920}
                 height={1080}

@@ -59,7 +59,7 @@
                     return (
                         <motion.img
                             key={i}
-                            src="/icons/34.png"
+                            src="/icons/34.webp"
                             initial={{
                                 y: 80,
                                 opacity: 0,

@@ -36,8 +36,18 @@ export default function NavBar() {
 
     return (
         <>
-            <nav className="w-full bg-white">
+            {/* Top Ribbon */}
+            <Link
+                href="/templates"
+                className="block bg-[#bc495c] text-white py-2.5 px-4 text-center text-[12px] md:text-[17px] hover:bg-[#6e222b] transition-colors relative z-[110]"
+            >
+                <div className="flex items-center justify-center gap-3">
+                    <span className="bg-white text-[#8b2c3c] px-2.5 py-0.5 rounded-full text-[9px] md:text-xs uppercase font-semibold tracking-tight">Offer</span>
+                    <span>Launch Offer: Get any premium templates for just ₹101! 🎁</span>
+                </div>
+            </Link>
 
+            <nav className="w-full bg-white shadow-sm">
                 {/* Logo Row */}
                 <div className="flex justify-center items-center py-1 relative border-b border-gray-100 md:border-none">
 

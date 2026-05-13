@@ -65,9 +65,9 @@ export default function ComparisonTableSection() {
     };
 
     const renderKhushkhabriCell = (val) => {
-        if (val === "v") return <CheckCircle2 className="w-7 h-7 mx-auto text-[#8b2c3c]" strokeWidth={2.5}/>;
+        if (val === "v") return <CheckCircle2 className="w-7 h-7 mx-auto text-green-500" strokeWidth={2.5}/>;
         return <span className="font-bold text-[#8b2c3c] whitespace-nowrap">{val}</span>;
-    }
+    };
 
     return (
         <section className="relative w-full py-16 px-4 sm:px-6 lg:px-8 z-20">

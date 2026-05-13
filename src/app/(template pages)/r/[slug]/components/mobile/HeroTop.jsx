@@ -71,7 +71,7 @@ export default function HeroTop({ bride, groom }) {
 
 
             <motion.img
-                src="/templates/royal/startCar.png"
+                src="/templates/royal/startCar.webp"
                 alt="car"
                 style={{
                     x: carX,

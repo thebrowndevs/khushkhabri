@@ -87,7 +87,7 @@ export default function MessageAndContacts({ invitation }) {
             </div>
 
             {/* Upper Section: Message */}
-            <div className="relative w-full pt-30 pb-[45vh] flex flex-col items-center text-center px-0">
+            <div className="relative w-full pt-25 pb-[45vh] flex flex-col items-center text-center px-0">
                 {/* Background */}
                 <div className="absolute inset-0 z-0">
                     <img

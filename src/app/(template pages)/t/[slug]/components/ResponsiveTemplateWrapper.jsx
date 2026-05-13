@@ -27,7 +27,7 @@ export default function ResponsiveTemplateWrapper(props) {
             {isMobile ? <TempleTemplateMobile {...props} /> :
                 <div className="min-h-screen w-full bg-[#fdf6ee]"
                     style={{
-                        backgroundImage: `url('/bg/pinkbg.png')`,
+                        backgroundImage: `url('/bg/pinkbg.webp')`,
                         backgroundRepeat: 'repeat',
                         backgroundSize: '200px',
                         backgroundOpacity: 0.3

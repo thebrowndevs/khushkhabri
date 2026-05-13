@@ -237,10 +237,12 @@ export default function CustomizationForm({ invitation, orderId }) {
                 <div className="max-w-md">
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Phone Number</label>
                     <input
-                        type="tel"
+                        type="text"
+                        inputMode="numeric"
+                        maxLength="10"
                         value={rsvpNumber}
-                        onChange={(e) => setRsvpNumber(e.target.value)}
-                        placeholder="e.g., +91 98765 43210"
+                        onChange={(e) => setRsvpNumber(e.target.value.replace(/\D/g, ''))}
+                        placeholder="9876543210"
                         className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
                     />
                 </div>

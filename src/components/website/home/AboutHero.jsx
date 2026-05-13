@@ -9,7 +9,7 @@ export default function AboutHero() {
             {[...Array(12)].map((_, i) => (
                 <motion.img
                     key={i}
-                    src={i % 2 === 0 ? "/icons/13.png" : "/icons/15.png"}
+                    src={i % 2 === 0 ? "/icons/13.webp" : "/icons/15.webp"}
                     className="absolute w-4 sm:w-6 opacity-40 pointer-events-none z-0"
                     initial={{
                         x: Math.random() * 100 + "%",
@@ -32,13 +32,13 @@ export default function AboutHero() {
 
             {/* 🌿 LEAVES */}
             <motion.img
-                src="/icons/16.png"
+                src="/icons/16.webp"
                 className="absolute left-4 top-10 w-12 opacity-30 pointer-events-none z-0 hidden sm:block"
                 animate={{ y: [0, 15, 0], rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-                src="/icons/14.png"
+                src="/icons/14.webp"
                 className="absolute right-10 top-20 w-10 opacity-30 pointer-events-none z-0 hidden sm:block"
                 animate={{ y: [0, -15, 0], rotate: [0, -8, 8, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
@@ -46,13 +46,13 @@ export default function AboutHero() {
 
             {/* ✉️ MAIL ICONS */}
             <motion.img
-                src="/icons/17.png"
+                src="/icons/17.webp"
                 className="absolute left-10 bottom-10 w-14 opacity-50 pointer-events-none z-0"
                 animate={{ y: [0, -10, 0], rotate: [-5, 5, -5] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-                src="/icons/18.png"
+                src="/icons/18.webp"
                 className="absolute right-20 bottom-20 w-12 opacity-40 pointer-events-none z-0 hidden md:block"
                 animate={{ y: [0, 12, 0], rotate: [5, -5, 5] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -60,13 +60,13 @@ export default function AboutHero() {
 
             {/* 🌺 SIDE FLOWERS */}
             <motion.img
-                src="/icons/2.png"
+                src="/icons/2.webp"
                 className="absolute -left-6 top-1/2 -translate-y-1/2 w-24 opacity-60 pointer-events-none z-0 hidden lg:block"
                 animate={{ rotate: [-2, 2, -2] }}
                 transition={{ duration: 5, repeat: Infinity }}
             />
             <motion.img
-                src="/icons/3.png"
+                src="/icons/3.webp"
                 className="absolute -right-6 top-1/4 w-20 opacity-60 pointer-events-none z-0 hidden lg:block"
                 animate={{ rotate: [2, -2, 2] }}
                 transition={{ duration: 6, repeat: Infinity }}

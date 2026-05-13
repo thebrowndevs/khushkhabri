@@ -16,9 +16,9 @@ export default function WhatsAppWidget() {
     }
 
     return (
-        <div className="fixed bottom-7 right-6 z-50 flex flex-col items-end gap-2">
+        <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
             {/* Message Popup */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {showMsg && (
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -31,7 +31,6 @@ export default function WhatsAppWidget() {
                     >
                         <span>Let’s chat on WhatsApp</span>
 
-                        {/* Cross button (only on hover) */}
                         {hovered && (
                             <button
                                 onClick={() => setShowMsg(false)}
@@ -42,7 +41,7 @@ export default function WhatsAppWidget() {
                         )}
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
 
             {/* WhatsApp Floating Button */}
             <motion.button

@@ -33,32 +33,32 @@ const eventMeta = {
     engagement: {
         title: "Engagement",
         image: "/templates/sikh/engagement2.png",
-        icon: "/icons/ring.png",
+        icon: "/icons/ring.webp",
     },
     haldi: {
         title: "Haldi",
         image: "/templates/sikh/haldi2.png",
-        icon: "/icons/haldi3.png",
+        icon: "/icons/haldi3.webp",
     },
     mehndi: {
         title: "Mehandi",
         image: "/templates/sikh/mehandi2.png",
-        icon: "/icons/mehndi.png",
+        icon: "/icons/mehndi.webp",
     },
     cocktail: {
         title: "Cocktail Party",
         image: "/templates/sikh/cocktail2.png",
-        icon: "/icons/glass.png",
+        icon: "/icons/glass.webp",
     },
     anand_karaj: {
         title: "Anand Karaj",
         image: "/templates/sikh/anandKaraj2.png",
-        icon: "/icons/khanda.png",
+        icon: "/icons/khanda.webp",
     },
     reception: {
         title: "Reception",
         image: "/templates/sikh/reception2.png",
-        icon: "/icons/celebration.png",
+        icon: "/icons/celebration.webp",
     },
 };
 
@@ -192,7 +192,7 @@ export default function EventsSection({ events = [] }) {
             <div
                 className="pt-34 pb-60 px-4 text-center bg-contain bg-center bg-repeat"
                 style={{
-                    backgroundImage: "url('/bg/bgRed.png')",
+                    backgroundImage: "url('/bg/bgRed.webp')",
                     // backgroundAttachment: "fixed",
                 }}
             >

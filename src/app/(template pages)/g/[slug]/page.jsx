@@ -13,8 +13,15 @@ export async function generateMetadata({ params }) {
     if (!invitation) return {};
 
     const invitorName = invitation.satsangDetails?.invitorName || "Khanna Family";
-    const title = `Guruji Satsang Invitation by ${invitorName}`;
-    const description = `You are lovingly invited to attend the Guruji Satsang by ${invitorName}`;
+
+    const satsangDate = invitation.satsangDetails?.date;
+    const formattedDate =
+        satsangDate
+            ? new Date(satsangDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+            : "";
+
+    const title = `Guruji Satsang Invitation by ${invitorName} | Khushkhabri.in`;
+    const description = `You are lovingly invited to attend the Guruji Satsang by ${invitorName} on ${formattedDate} | Khushkhabri.in`;
 
     return {
         title,
@@ -22,7 +29,7 @@ export async function generateMetadata({ params }) {
         openGraph: {
             title,
             description,
-            url: `https://khushkhabri.vercel.app/g/${slug}`,
+            url: `https://khushkhabri.in/g/${slug}`,
             images: [
                 {
                     url: "/satsangseo.png", // fallback placeholder

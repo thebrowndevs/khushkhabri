@@ -13,12 +13,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import clsx from "clsx";
 import { Loader2 } from 'lucide-react';
-import ImageSelector from "@/components/ImageSelector";
+import UploaderDialog from "@/app/admin/media/components/UploaderDialog";
 import Image from "next/image";
 
 export default function CategoryDialog({ open, onOpenChange, selectedCategory, onCreate, onUpdate, isSubmitting, error, image, setImage }) {
     const { register, handleSubmit, reset, formState: { errors }, watch, setValue } = useForm()
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [isUploaderOpen, setIsUploaderOpen] = useState(false);
 
     useEffect(() => {
         if (open) {
@@ -92,7 +92,7 @@ export default function CategoryDialog({ open, onOpenChange, selectedCategory, o
                         {!image
                             && <div
                                 className="flex-1 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center cursor-pointer h-48 mb-4 sm:mb-0"
-                                onClick={() => { setIsDialogOpen(true) }}
+                                onClick={() => { setIsUploaderOpen(true) }}
                             >
                                 <span className="text-gray-500">Click to select image</span>
                             </div>
@@ -112,7 +112,7 @@ export default function CategoryDialog({ open, onOpenChange, selectedCategory, o
                         {image &&
                             <Button
                                 type='button'
-                                onClick={() => { setIsDialogOpen(true) }}
+                                onClick={() => { setIsUploaderOpen(true) }}
                             >
                                 Change Image
                             </Button>
@@ -193,10 +193,14 @@ export default function CategoryDialog({ open, onOpenChange, selectedCategory, o
                 </form>
             </DialogContent>
 
-            <ImageSelector
-                open={isDialogOpen}
-                onOpenChange={setIsDialogOpen}
-                setImage={setImage}
+            <UploaderDialog
+                open={isUploaderOpen}
+                onOpenChange={setIsUploaderOpen}
+                onUploadSuccess={(urls) => {
+                    if (urls && urls.length > 0) {
+                        setImage(urls[0]);
+                    }
+                }}
             />
         </Dialog>
     )

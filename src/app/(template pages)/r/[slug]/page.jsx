@@ -18,11 +18,20 @@ export async function generateMetadata({ params }) {
     const brideName = invitation.weddingDetails?.bride?.name || "Bride";
     const side = invitation.weddingDetails?.side || "groom";
 
-    const title = `${groomName} Weds ${brideName}`;
+    const weddingDateRaw = invitation.weddingDetails?.weddingDate;
+    const formattedDate = weddingDateRaw
+        ? new Date(weddingDateRaw).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+        : "";
+
+    const title =
+        side === "bride"
+            ? `${brideName} & ${groomName} | ${formattedDate} | Khushkhabri.in`
+            : `${groomName} & ${brideName} | ${formattedDate} | Khushkhabri.in`;
+
     const description =
         side === "bride"
-            ? `${brideName} is inviting you to join their wedding celebration`
-            : `${groomName} is inviting you to join their wedding celebration`;
+            ? `You're invited to celebrate the wedding of ${brideName} & ${groomName} on ${formattedDate} | View details and RSVP on Khushkhabri.in`
+            : `You're invited to celebrate the wedding of ${groomName} & ${brideName} on ${formattedDate} | View details and RSVP on Khushkhabri.in`;
 
     return {
         title,
@@ -30,7 +39,7 @@ export async function generateMetadata({ params }) {
         openGraph: {
             title,
             description,
-            url: `https://khushkhabri.vercel.app/r/${slug}`,
+            url: `https://khushkhabri.in/r/${slug}`,
             images: [
                 {
                     url: "/royalseo.png",

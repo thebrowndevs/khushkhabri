@@ -7,7 +7,7 @@ import TimeBox from "./TimeBox";
 function FloatingPetals() {
     const petals = Array.from({ length: 30 }).map((_, i) => ({
         id: i,
-        src: i % 2 === 0 ? "/icons/13.png" : "/icons/15.png",
+        src: i % 2 === 0 ? "/icons/13.webp" : "/icons/15.webp",
         left: (i * 23) % 100,
         top: (i * 17) % 100,
         duration: 12 + (i % 7) * 2,
@@ -93,7 +93,7 @@ export default function CountdownSection({ weddingDate }) {
             {/* Top part with bottom1 background */}
             <div
                 className="relative w-full pt-50 pb-20 flex flex-col items-center bg-cover bg-bottom z-10"
-                style={{ backgroundImage: "url('/templates/floral/bottom1.png')" }}
+                style={{ backgroundImage: "url('/templates/floral/bottom1.webp')" }}
             >
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -160,7 +160,7 @@ export default function CountdownSection({ weddingDate }) {
             {/* Bottom part showing couple on swing */}
             <div className="w-full relative -mt-[90%] z-0 pointer-events-none">
                 <img
-                    src="/templates/floral/bottom2.png"
+                    src="/templates/floral/bottom2.webp"
                     alt="Couple on swing"
                     className="w-full h-auto object-cover"
                 />

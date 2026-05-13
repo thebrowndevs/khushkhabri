@@ -39,7 +39,7 @@ export default function GallerySection({ invitation }) {
             <div
                 className="pt-45 pb-25 bg-cover bg-center bg-no-repeat text-center"
                 style={{
-                    backgroundImage: "url('/bg/blue-texture.png')",
+                    backgroundImage: "url('/bg/blue-texture.webp')",
                 }}
             >
 

@@ -23,7 +23,7 @@ export default function BackIcons() {
     ];
 
 
-    const iconTypes = ["/icons/3.png", "/icons/34.png"];
+    const iconTypes = ["/icons/3.webp", "/icons/34.webp"];
 
     return icons.map((icon, i) => {
         const y = useTransform(smooth, [-500, 0, 500], [-200, 0, 100]);

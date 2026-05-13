@@ -39,7 +39,7 @@ export default function GallerySection({ invitation }) {
             <div
                 className="pt-40 pb-25 bg-cover bg-center bg-no-repeat text-center"
                 style={{
-                    backgroundImage: "url('/bg/blue-texture.png')",
+                    backgroundImage: "url('/bg/blue-texture.webp')",
                 }}
             >
 
@@ -86,7 +86,7 @@ export default function GallerySection({ invitation }) {
                                             <div className="relative w-[350px] h-[560px] flex items-center justify-center">
                                                 {/* Frame Overlay */}
                                                 <img
-                                                    src="/templates/floral/frame3.png"
+                                                    src="/templates/floral/frame3.webp"
                                                     alt="frame"
                                                     className="absolute inset-0 w-full h-full object-contain z-10 pointer-events-none drop-shadow-lg"
                                                 />

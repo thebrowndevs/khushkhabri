@@ -10,7 +10,7 @@ function BlogsClient({ allBlogs }) {
             {/* GLOBAL FIXED BACKGROUND FOR PARALLAX */}
             <div
                 className="fixed inset-0 z-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('/bg/pinkbg.png')`, backgroundColor: '#FFEAED' }}
+                style={{ backgroundImage: `url('/bg/pinkbg.webp')`, backgroundColor: '#FFEAED' }}
             />
             {/* Shared Overlay */}
             <div className="fixed inset-0 z-0 bg-white/60 backdrop-blur-[2px]" />
@@ -51,4 +51,4 @@ function BlogsClient({ allBlogs }) {
     )
 }
 
-export default BlogsClient;
+export default BlogsClient;

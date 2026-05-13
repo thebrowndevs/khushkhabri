@@ -37,7 +37,7 @@ export default function Details({ invitation }) {
     const year = dateObj.toLocaleDateString('en-IN', { year: 'numeric' });
 
     return (
-        <section className="relative w-full z-10 -mt-[40vh] font-serif flex flex-col items-center pb-10">
+        <section className="relative w-full z-10 -mt-[40vh] font-serif flex flex-col items-center pb-5">
             {/* Background Images Layer */}
             <div className="absolute inset-0 z-0 flex flex-col w-full h-full">
                 <img src="/templates/guruji/details.png" alt="bg1" className="w-full h-auto object-cover object-top" />
@@ -169,7 +169,7 @@ export default function Details({ invitation }) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.1 }}
                     transition={{ duration: 1.8, delay: 0.7, ease: "easeOut" }}
-                    className={`${cormorantUpright.className} bg-white/30  px-8 pt-24 pb-66 w-full max-w-[280px] flex flex-col items-center text-center relative border-x-2 border-[#8b2c3c]/80 border-b-2 shadow-2xl rounded-2xl`}
+                    className={`${cormorantUpright.className} bg-white/30  px-8 pt-24 pb-56 w-full max-w-[280px] flex flex-col items-center text-center relative border-x-2 border-[#8b2c3c]/80 border-b-2 shadow-2xl rounded-2xl`}
                 >
                     <h3 className="text-[#13351d] text-4xl mt-3 font-bold mb-5 tracking-tight">{details.invitorName || 'Khanna Family'}</h3>
                     <p className="text-[#13351d] text-2xl mb-6 italic opacity-80 leading-relaxed">cordially invite<br />you to</p>

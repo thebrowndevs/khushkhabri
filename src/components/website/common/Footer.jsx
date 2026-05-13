@@ -139,14 +139,14 @@ export default function Footer() {
             <div className="flex justify-center md:justify-end gap-4 mt-6">
 
               <a
-                href="#"
+                href="https://www.instagram.com/khushkhabri_official/"
                 className="bg-[#6b1a2a] p-3 rounded-full hover:bg-[#8c2236] transition"
               >
                 <FaInstagram size={18} />
               </a>
 
               <a
-                href="#"
+                href="https://www.youtube.com/@GGaganJohar"
                 className="bg-[#6b1a2a] p-3 rounded-full hover:bg-[#8c2236] transition"
               >
                 <FaYoutube size={18} />

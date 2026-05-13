@@ -20,7 +20,7 @@ export default function Hero({ invitation }) {
             /> */}
 
             <Image
-                src="/templates/royal/hero.png"
+                src="/templates/royal/hero.webp"
                 alt="bg"
                 width={1920}
                 height={1080}

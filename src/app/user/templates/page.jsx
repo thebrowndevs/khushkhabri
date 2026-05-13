@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useUsers } from '@/hooks/useUsers'
 import { THEMES, getThemeByThemeName } from '@/lib/constants/themes'
@@ -11,7 +11,7 @@ import { format } from 'date-fns'
 import { LayoutGrid, ExternalLink, Calendar, Hash } from 'lucide-react'
 
 export default function TemplatesPage() {
-    const { data: session } = useSession()
+    const { data: session, status: sessionStatus } = useSession()
     const { getUserQuery } = useUsers({ role: 'user', page: 1, pageSize: 10 })
     const userId = session?.user?.id
 
@@ -21,7 +21,17 @@ export default function TemplatesPage() {
         data: userData
     } = getUserQuery(userId)
 
-    if (loading) return (
+    useEffect(() => {
+        // Only refresh if we've waited and session is still not found
+        // This helps in some cases where the session cookie takes a moment to be readable
+        const hasRefreshed = sessionStorage.getItem('templates_initial_refresh');
+        if (!hasRefreshed && sessionStatus === 'unauthenticated') {
+            sessionStorage.setItem('templates_initial_refresh', 'true');
+            window.location.reload();
+        }
+    }, [sessionStatus]);
+
+    if (sessionStatus === 'loading' || (sessionStatus === 'authenticated' && loading)) return (
         <InnerDashboardLayout>
             <UserProfileSkeleton />
         </InnerDashboardLayout>

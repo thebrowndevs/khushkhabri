@@ -27,10 +27,10 @@ export default function ResponsiveTemplateWrapper(props) {
             {isMobile ? <FloralTemplateMobile {...props} /> :
                 <div className="min-h-screen w-full bg-[#fdf6ee]"
                     style={{
-                        backgroundImage: `url('/bg/pinkbg.png')`,
-                        backgroundRepeat: 'repeat',
-                        backgroundSize: '200px',
-                        backgroundOpacity: 0.3
+                        backgroundImage: `url('/bg/pinkbg.webp')`,
+                        backgroundPosition: "top",
+                        backgroundAttachment: "fixed",
+                        backgroundColor: '#FFEAED'
                     }}>
                     <div className="w-full max-w-[940px] mx-auto">
                         <FloralTemplateDesktop {...props} />

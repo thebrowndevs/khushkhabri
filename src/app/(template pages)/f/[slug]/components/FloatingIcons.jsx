@@ -18,7 +18,7 @@ export default function FloatingIcons({ count = 10, icons = [1, 2, 3, 4, 5], sec
             {floatingElements.map((el) => (
                 <motion.img
                     key={`${sectionId}-${el.id}`}
-                    src={`/icons/${el.icon}.png`}
+                    src={`/icons/${el.icon}.webp`}
                     alt="floating icon"
                     className="absolute opacity-20"
                     style={{

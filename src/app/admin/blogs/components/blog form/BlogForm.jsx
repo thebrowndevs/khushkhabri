@@ -23,7 +23,7 @@ import { ImageIcon, X } from 'lucide-react';
 import { useBlogs } from '@/hooks/useBlogs';
 import LoaderButton from '@/components/custom/LoaderButton';
 import { cn } from '@/lib/utils';
-import ImageSelector from '@/components/ImageSelector';
+import UploaderDialog from '@/app/admin/media/components/UploaderDialog';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
@@ -64,7 +64,7 @@ const VALIDATION_RULES = {
 export default function BlogForm({ defaultValues }) {
     const { createBlog, updateBlog } = useBlogs({ status: true, featured: false, page: 1, pageSize: 10 });
     const { mutateAsync: createBlogAsync, isPending: isCreating } = createBlog;
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [isUploaderOpen, setIsUploaderOpen] = useState(false);
     const [image, setImage] = useState(null)
 
     const {
@@ -207,7 +207,7 @@ export default function BlogForm({ defaultValues }) {
                             {!image ? (
                                 <div
                                     className="border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center cursor-pointer h-48"
-                                    onClick={() => setIsDialogOpen(true)}
+                                    onClick={() => setIsUploaderOpen(true)}
                                 >
                                     <ImageIcon className="w-10 h-10 text-gray-400 mb-2" />
                                     <span className="text-gray-500">Click to select image</span>
@@ -227,7 +227,7 @@ export default function BlogForm({ defaultValues }) {
                                     <Button
                                         type="button"
                                         variant="outline"
-                                        onClick={() => setIsDialogOpen(true)}
+                                        onClick={() => setIsUploaderOpen(true)}
                                     >
                                         Change Image
                                     </Button>
@@ -479,10 +479,14 @@ export default function BlogForm({ defaultValues }) {
                 </div>
             </form>
 
-            <ImageSelector
-                open={isDialogOpen}
-                onOpenChange={setIsDialogOpen}
-                setImage={setImage}
+            <UploaderDialog
+                open={isUploaderOpen}
+                onOpenChange={setIsUploaderOpen}
+                onUploadSuccess={(urls) => {
+                    if (urls && urls.length > 0) {
+                        setImage(urls[0]);
+                    }
+                }}
             />
         </>
     );

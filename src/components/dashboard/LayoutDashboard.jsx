@@ -9,33 +9,37 @@ function LayoutDashboard({ children, sidebarLinks }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <main className='flex flex-col sm:flex-row h-screen overflow-hidden'>
-
-            <div className="flex p-5 justify-between items-center bg-gray-900 shadow-md gap-3 sm:hidden">
+        <div className='fixed inset-0 flex flex-col sm:flex-row overflow-hidden bg-white font-sans'>
+            {/* Mobile Header */}
+            <div className="sm:hidden flex flex-none items-center justify-between p-4 bg-gray-900 text-white shadow-md z-[60]">
                 <Image
-                    height={100}
-                    width={300}
+                    height={32}
+                    width={120}
                     src={IMAGES.LOGO}
                     alt="logo"
-                    className="max-h-5 w-auto"
+                    className="h-8 w-auto invert brightness-0"
                 />
+                <button 
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                >
+                    {sidebarOpen ? <Cross className="w-6 h-6 rotate-90 transition-transform" /> : <Menu className="w-6 h-6" />}
+                </button>
+            </div>
 
-                <div onClick={() => setSidebarOpen(prev => !prev)} className="cursor-pointer text-white">
-                    {sidebarOpen
-                        ? <Cross className="text-2xl ease-in-out transition-all duration-300 focus:rotate-90" />
-                        : <Menu className="text-2xl" />
-                    }
+            {/* Sidebar Sidebar */}
+            <Sidebar isOpen={sidebarOpen} setIsSidebarOpen={setSidebarOpen} sidebarLinks={sidebarLinks} />
+
+            {/* Main Content Area */}
+            <div 
+                className='flex-1 relative overflow-y-auto overflow-x-hidden bg-gray-50'
+                onClick={() => setSidebarOpen(false)}
+            >
+                <div className="min-h-full flex flex-col p-4 md:p-6 lg:p-10">
+                    {children}
                 </div>
             </div>
-
-            <div className=''>
-                <Sidebar isOpen={sidebarOpen} setIsSidebarOpen={setSidebarOpen} sidebarLinks={sidebarLinks} />
-            </div>
-
-            <div className='grow h-full overflow-auto' onClick={() => setSidebarOpen(false)}>
-                {children}
-            </div>
-        </main>
+        </div>
     )
 }
 

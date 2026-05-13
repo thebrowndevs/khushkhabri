@@ -74,7 +74,7 @@ export default function DemoCheckoutButton({ themeName }) {
                             ...response,
                             themeName,
                             userId: session.user.id,
-                            amount: 4000, 
+                            amount: 4000,
                         }),
                     });
                     const verifyData = await verifyRes.json();
@@ -125,15 +125,15 @@ export default function DemoCheckoutButton({ themeName }) {
                         className="px-6 py-3 bg-[#8b2c3c] text-white rounded-full font-bold text-sm hover:bg-[#5a1e2b] transition-all shadow-md flex items-center gap-2 transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap"
                     >
                         <Sparkles size={16} className={`${isProcessing ? 'animate-pulse' : ''}`} />
-                        {isProcessing ? 'Processing' : 'Buy Now - ₹4000'}
+                        {isProcessing ? 'Processing' : 'Buy Now - ₹101'}
                     </button>
                 </div>
             </div>
 
             {isLoginDialogOpen && (
-                <AuthDialog 
-                    isOpen={isLoginDialogOpen} 
-                    onClose={() => setIsLoginDialogOpen(false)} 
+                <AuthDialog
+                    isOpen={isLoginDialogOpen}
+                    onClose={() => setIsLoginDialogOpen(false)}
                 />
             )}
         </>

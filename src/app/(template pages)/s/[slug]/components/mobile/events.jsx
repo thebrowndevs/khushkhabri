@@ -192,7 +192,7 @@ export default function EventsSection({ events = [] }) {
             <div
                 className="pt-44 pb-60 px-4 text-center bg-contain bg-center bg-repeat"
                 style={{
-                    backgroundImage: "url('/bg/bgRed.png')",
+                    backgroundImage: "url('/bg/bgRed.webp')",
                     // backgroundAttachment: "fixed",
                 }}
             >

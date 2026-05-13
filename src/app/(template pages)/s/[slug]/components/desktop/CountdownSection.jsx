@@ -47,7 +47,7 @@ export default function CountdownSection({ weddingDate }) {
             <div
                 className="pt-25 pb-24 text-center bg-cover bg-center font-script"
                 style={{
-                    backgroundImage: "url('/bg/bgRed.png')",
+                    backgroundImage: "url('/bg/bgRed.webp')",
                 }}
             >
 

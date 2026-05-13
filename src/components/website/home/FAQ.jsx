@@ -76,16 +76,16 @@ const weddingFaqs = [
 ];
 
 const floatingIcons = [
-    { id: 211, src: "/icons/21.png", top: "5%", left: "4%", size: "w-16 h-16 md:w-24 md:h-24", delay: 0 },
-    { id: 212, src: "/icons/21.png", bottom: "21%", right: "5%", size: "w-14 h-14 md:w-20 md:h-20", delay: 2 },
-    { id: 221, src: "/icons/22.png", top: "15%", right: "4%", size: "w-14 h-14 md:w-22 md:h-22", delay: 1.5 },
-    { id: 222, src: "/icons/22.png", bottom: "40%", left: "3%", size: "w-12 h-12 md:w-18 md:h-18", delay: 3.5 },
-    { id: 231, src: "/icons/23.png", bottom: "5%", left: "6%", size: "w-20 h-20 md:w-28 md:h-28", delay: 3 },
-    { id: 232, src: "/icons/23.png", top: "40%", right: "5%", size: "w-16 h-16 md:w-24 md:h-24", delay: 1 },
-    { id: 241, src: "/icons/24.png", bottom: "5%", right: "6%", size: "w-16 h-16 md:w-24 md:h-24", delay: 0.5 },
-    { id: 242, src: "/icons/24.png", top: "30%", left: "12%", size: "w-14 h-14 md:w-20 md:h-20", delay: 2.5 },
-    { id: 251, src: "/icons/25.png", top: "55%", right: "11%", size: "w-14 h-14 md:w-22 md:h-22", delay: 2.2 },
-    { id: 252, src: "/icons/25.png", bottom: "20%", left: "5%", size: "w-12 h-12 md:w-18 md:h-18", delay: 0.8 },
+    { id: 211, src: "/icons/21.webp", top: "5%", left: "4%", size: "w-16 h-16 md:w-24 md:h-24", delay: 0 },
+    { id: 212, src: "/icons/21.webp", bottom: "21%", right: "5%", size: "w-14 h-14 md:w-20 md:h-20", delay: 2 },
+    { id: 221, src: "/icons/22.webp", top: "15%", right: "4%", size: "w-14 h-14 md:w-22 md:h-22", delay: 1.5 },
+    { id: 222, src: "/icons/22.webp", bottom: "40%", left: "3%", size: "w-12 h-12 md:w-18 md:h-18", delay: 3.5 },
+    { id: 231, src: "/icons/23.webp", bottom: "5%", left: "6%", size: "w-20 h-20 md:w-28 md:h-28", delay: 3 },
+    { id: 232, src: "/icons/23.webp", top: "40%", right: "5%", size: "w-16 h-16 md:w-24 md:h-24", delay: 1 },
+    { id: 241, src: "/icons/24.webp", bottom: "5%", right: "6%", size: "w-16 h-16 md:w-24 md:h-24", delay: 0.5 },
+    { id: 242, src: "/icons/24.webp", top: "30%", left: "12%", size: "w-14 h-14 md:w-20 md:h-20", delay: 2.5 },
+    { id: 251, src: "/icons/25.webp", top: "55%", right: "11%", size: "w-14 h-14 md:w-22 md:h-22", delay: 2.2 },
+    { id: 252, src: "/icons/25.webp", bottom: "20%", left: "5%", size: "w-12 h-12 md:w-18 md:h-18", delay: 0.8 },
 ];
 
 function FAQ() {

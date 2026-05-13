@@ -33,33 +33,33 @@ const item = {
 const eventMeta = {
     engagement: {
         title: "Engagement",
-        image: "/templates/floral/engagement.png",
-        icon: "/icons/ring.png",
+        image: "/templates/floral/engagement.webp",
+        icon: "/icons/ring.webp",
     },
     haldi: {
         title: "Haldi",
-        image: "/templates/floral/haldi.png",
-        icon: "/icons/haldi3.png",
+        image: "/templates/floral/haldi.webp",
+        icon: "/icons/haldi3.webp",
     },
     mehndi: {
         title: "Mehandi",
-        image: "/templates/floral/mehandi.png",
-        icon: "/icons/mehndi.png",
+        image: "/templates/floral/mehandi.webp",
+        icon: "/icons/mehndi.webp",
     },
     cocktail: {
         title: "Cocktail Party",
-        image: "/templates/floral/cocktail.png",
-        icon: "/icons/glass.png",
+        image: "/templates/floral/cocktail.webp",
+        icon: "/icons/glass.webp",
     },
     anand_karaj: {
         title: "Shaadi",
-        image: "/templates/floral/shaadi.png",
-        icon: "/icons/1.png",
+        image: "/templates/floral/shaadi.webp",
+        icon: "/icons/1.webp",
     },
     reception: {
         title: "Reception",
-        image: "/templates/floral/reception.png",
-        icon: "/icons/celebration.png",
+        image: "/templates/floral/reception.webp",
+        icon: "/icons/celebration.webp",
     },
 };
 
@@ -193,7 +193,7 @@ export default function EventsSection({ events = [] }) {
             <div
                 className="pt-44 pb-60 px-4 text-center bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: "url('/bg/orange.png')",
+                    backgroundImage: "url('/bg/orange.webp')",
                     // backgroundAttachment: "fixed",
                 }}
             >

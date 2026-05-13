@@ -7,11 +7,11 @@ import Image from "next/image";
 
 export default function HeroSection2() {
     const themes = [
-        { id: 1, img: "/images/invite1.png", rotate: -12, x: -80, z: 10, delay: 0.1 },
-        { id: 2, img: "/images/invite2.png", rotate: -6, x: -40, z: 20, delay: 0.2 },
-        { id: 3, img: "/images/invite3.png", rotate: 0, x: 0, z: 30, delay: 0.3 },
-        { id: 4, img: "/images/invite4.png", rotate: 6, x: 40, z: 20, delay: 0.4 },
-        { id: 5, img: "/images/invite5.png", rotate: 12, x: 80, z: 10, delay: 0.5 },
+        { id: 1, img: "/images/invite1.webp", rotate: -12, x: -80, z: 10, delay: 0.1 },
+        { id: 2, img: "/images/invite2.webp", rotate: -6, x: -40, z: 20, delay: 0.2 },
+        { id: 3, img: "/images/invite3.webp", rotate: 0, x: 0, z: 30, delay: 0.3 },
+        { id: 4, img: "/images/invite4.webp", rotate: 6, x: 40, z: 20, delay: 0.4 },
+        { id: 5, img: "/images/invite5.webp", rotate: 12, x: 80, z: 10, delay: 0.5 },
     ];
 
     return (
