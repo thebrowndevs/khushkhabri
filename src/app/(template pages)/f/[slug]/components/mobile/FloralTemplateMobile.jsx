@@ -38,8 +38,23 @@ export default function FloralTemplateMobile({ invitation, events, weddingDate }
 
                         <div className="relative">
                             <EventsSection events={events} />
+                            {invitation.rsvpNumber ?
+                                <RSVPSticker rsvpNumber={invitation.rsvpNumber} />
 
-                            <RSVPSticker rsvpNumber={invitation.rsvpNumber} />
+                                : <motion.div
+                                    initial={{ opacity: 0, y: 80 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 1.2 }}
+                                    viewport={{ once: true }}
+                                    className="absolute left-0 bottom-[0%] w-full z-50 translate-y-1/2 pointer-events-none"
+                                >
+                                    <img
+                                        src="/templates/floral/sticker2.png"
+                                        alt="route"
+                                        className="w-full object-contain"
+                                    />
+                                </motion.div>}
+
                         </div>
                         {isGalleryVisible && (
                             <div className="relative">
@@ -66,4 +81,4 @@ export default function FloralTemplateMobile({ invitation, events, weddingDate }
             </div>
         </SmoothScroll>
     );
-}
+}
