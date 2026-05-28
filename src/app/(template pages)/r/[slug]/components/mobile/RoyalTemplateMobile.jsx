@@ -64,7 +64,6 @@ export default function RoyalTemplateMobile({ invitation, events, weddingDate })
                         <div className="relative">
                             <CountdownSection weddingDate={weddingDate} />
 
-
                             <motion.div
                                 initial={{ opacity: 0, y: 80 }}
                                 whileInView={{ opacity: 1, y: 0 }}

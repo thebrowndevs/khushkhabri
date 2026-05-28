@@ -56,16 +56,16 @@ export default function HeroTop({ bride, groom }) {
                 animate="show"
                 className="z-10"
             >
-                <motion.h1 variants={item} className="text-white text-7xl font-script">
-                    {bride?.name?.split(' ')[0] || 'Bride'}
+                <motion.h1 variants={item} className="text-white text-7xl font-script capitalize">
+                    {(bride?.name?.split(' ')[0] || 'Bride').toLowerCase()}
                 </motion.h1>
 
                 <motion.p variants={item} className="text-white text-2xl mt-2 font-script">
                     weds
                 </motion.p>
 
-                <motion.h2 variants={item} className="text-white text-7xl mt-2 font-script">
-                    {groom?.name?.split(' ')[0] || 'Groom'}
+                <motion.h2 variants={item} className="text-white text-7xl mt-2 font-script capitalize">
+                    {(groom?.name?.split(' ')[0] || 'Groom').toLowerCase()}
                 </motion.h2>
             </motion.div>
 

@@ -45,7 +45,7 @@ export default function CountdownSection({ weddingDate }) {
         <section className="relative w-full overflow-hidden font-serif">
             {/* Background */}
             <div
-                className="pt-35 pb-24 text-center bg-cover bg-center font-script"
+                className="pt-55 pb-24 text-center bg-cover bg-center font-script"
                 style={{
                     backgroundImage: "url('/bg/maroon.png')",
                 }}

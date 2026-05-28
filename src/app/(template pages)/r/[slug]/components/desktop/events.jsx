@@ -150,8 +150,8 @@ function EventItem({ event, meta }) {
             </motion.div>
 
             {/* Title */}
-            <motion.h3 variants={item} className="text-white text-6xl mt-4 font-script relative z-10">
-                {meta.title}
+            <motion.h3 variants={item} className="text-white text-6xl mt-4 font-script relative z-10 capitalize">
+                {event.label || meta.title}
             </motion.h3>
 
             {/* Details */}
@@ -238,16 +238,16 @@ export default function EventsSection({ events = [], invitation }) {
                     viewport={{ once: true, margin: "-100px" }}
                     className="space-y-7 text-white mb-16"
                 >
-                    <motion.p variants={itemDetails} className="text-2xl leading-relaxed">
+                    <motion.p variants={itemDetails} className="text-2xl leading-relaxed capitalize">
                         {side === 'groom' ? (
                             <>
-                                Mr {groom?.father} &<br />
-                                Mrs {groom?.mother}
+                                Mr {groom?.father?.toLowerCase()} &<br />
+                                Mrs {groom?.mother?.toLowerCase()}
                             </>
                         ) : (
                             <>
-                                Mr {bride?.father} &<br />
-                                Mrs {bride?.mother}
+                                Mr {bride?.father?.toLowerCase()} &<br />
+                                Mrs {bride?.mother?.toLowerCase()}
                             </>
                         )}
                     </motion.p>
@@ -261,32 +261,32 @@ export default function EventsSection({ events = [], invitation }) {
                         {side === 'groom' ? 'son' : 'daughter'}
                     </motion.p>
 
-                    <motion.h3 variants={itemDetails} className="text-6xl font-script tracking-wide">
-                        {side === 'groom' ? groom?.name : bride?.name}
+                    <motion.h3 variants={itemDetails} className="text-6xl font-script tracking-wide capitalize">
+                        {(side === 'groom' ? groom?.name : bride?.name)?.toLowerCase()}
                     </motion.h3>
 
                     <motion.p variants={itemDetails} className="text-xl">
                         with
                     </motion.p>
 
-                    <motion.h3 variants={itemDetails} className="text-6xl font-script tracking-wide">
-                        {side === 'groom' ? bride?.name : groom?.name}
+                    <motion.h3 variants={itemDetails} className="text-6xl font-script tracking-wide capitalize">
+                        {(side === 'groom' ? bride?.name : groom?.name)?.toLowerCase()}
                     </motion.h3>
 
                     <motion.p variants={itemDetails} className="text-xl mt-4">
                         {side === 'groom' ? 'daughter of' : 'son of'}
                     </motion.p>
 
-                    <motion.p variants={itemDetails} className="text-2xl leading-relaxed">
+                    <motion.p variants={itemDetails} className="text-2xl leading-relaxed capitalize">
                         {side === 'groom' ? (
                             <>
-                                Mr {bride?.father || 'Father'} &<br />
-                                Mrs {bride?.mother || 'Mother'}
+                                Mr {(bride?.father || 'Father').toLowerCase()} &<br />
+                                Mrs {(bride?.mother || 'Mother').toLowerCase()}
                             </>
                         ) : (
                             <>
-                                Mr {groom?.father || 'Father'} &<br />
-                                Mrs {groom?.mother || 'Mother'}
+                                Mr {(groom?.father || 'Father').toLowerCase()} &<br />
+                                Mrs {(groom?.mother || 'Mother').toLowerCase()}
                             </>
                         )}
                     </motion.p>

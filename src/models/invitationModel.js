@@ -67,6 +67,7 @@ const invitationSchema = new mongoose.Schema(
         events: [
             {
                 name: String,
+                label: String,
                 enabled: Boolean,
                 date: Date,
                 time: String,

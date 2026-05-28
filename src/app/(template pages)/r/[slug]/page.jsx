@@ -1,4 +1,4 @@
-// app/(template pages)/s/[slug]/page.jsx
+// app/(template pages)/r/[slug]/page.jsx
 
 import { connectDB } from "@/lib/mongodb";
 import Invitation from "@/models/invitationModel";
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }) {
     };
 }
 
-export default async function SikhTemplatePage({ params }) {
+export default async function RoyalTemplatePage({ params }) {
     const { slug } = await params;
 
     await connectDB();
@@ -77,6 +77,7 @@ export default async function SikhTemplatePage({ params }) {
         return {
             type,
             active: true,
+            label: e.label || '',
             date: e.date ? new Date(e.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '',
             location: e.venue,
             time: e.time,
