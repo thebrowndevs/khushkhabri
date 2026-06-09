@@ -30,7 +30,7 @@ export default function Hero({ invitation }) {
 
             {/* ✅ OVERLAY CONTENT */}
             <div className="absolute inset-0 z-10 flex flex-col">
-                <HeroTop bride={bride} groom={groom} />
+                <HeroTop bride={bride} groom={groom} side={invitation?.weddingDetails?.side} />
             </div>
 
         </section>
