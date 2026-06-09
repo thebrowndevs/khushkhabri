@@ -104,6 +104,11 @@ export default function RootLayout({ children }) {
           }}
         />
 
+         <meta
+    name="google-site-verification"
+    content="hFCVnsw5aJokCe9TLchmL0p6sRLCboa7RlbvcU4pdvY"
+  />
+
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
     (function(c,l,a,r,i,t,y){
