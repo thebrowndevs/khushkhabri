@@ -4,7 +4,7 @@ import React from "react";
 import { FaWhatsapp, FaPlay } from "react-icons/fa";
 
 export default function DemoVideosSection() {
-  const WHATSAPP_NUMBER = "918878789898";
+  const WHATSAPP_NUMBER = "919990440099";
 
   const demoVideos = [
     { id: "1101", title: "Premium Wedding Flow", videoUrl: "videos/hero_video_2.mp4" },
