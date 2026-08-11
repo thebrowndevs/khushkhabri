@@ -98,12 +98,12 @@ export default function HeroBottom({ invitation }) {
                     {side === 'groom' ? (
                         <>
                             Sardar {bride?.father || 'Father'} &<br />
-                            Sardami {bride?.mother || 'Mother'}
+                            Sardani {bride?.mother || 'Mother'}
                         </>
                     ) : (
                         <>
                             Sardar {groom?.father || 'Father'} &<br />
-                            Sardami {groom?.mother || 'Mother'}
+                            Sardani {groom?.mother || 'Mother'}
                         </>
                     )}
                 </motion.p>

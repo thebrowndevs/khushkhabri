@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import { useParams } from "next/navigation";
 
 const container = {
     hidden: {},
@@ -186,6 +187,8 @@ function EventItem({ event, meta }) {
 }
 
 export default function EventsSection({ events = [] }) {
+    const { slug } = useParams();
+
     return (
         <section className="relative w-full overflow-visible font-serif">
 
@@ -207,8 +210,12 @@ export default function EventsSection({ events = [] }) {
                 <div className="mt-12 space-y-20">
                     {events.map((event, index) => {
                         const key = normalizeType(event.type);
-                        const meta = eventMeta[key];
+                        let meta = eventMeta[key];
                         if (!meta) return null;
+
+                        if (key === "engagement" && (slug === "sukhvir-weds-ishleen-jdw" || slug === "sukhvir-weds-ishleen-s9s")) {
+                            meta = { ...meta, title: "Mehfil-e-Sufi" };
+                        }
 
                         return (
                             <EventItem
