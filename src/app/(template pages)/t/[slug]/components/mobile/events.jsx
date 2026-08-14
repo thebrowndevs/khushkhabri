@@ -133,7 +133,7 @@ function EventItem({ event, meta }) {
                 variants={item}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 className="w-[450px] relative z-10"
             >
                 <img
@@ -148,12 +148,12 @@ function EventItem({ event, meta }) {
                 variants={container}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 className="relative z-10 flex flex-col items-center text-center"
             >
                 {/* Title */}
                 <motion.h3 variants={item} className="text-white text-6xl mt-0 font-script">
-                    {meta.title}
+                    {event.label || meta.title}
                 </motion.h3>
 
                 {/* Details */}
@@ -168,6 +168,12 @@ function EventItem({ event, meta }) {
                 <motion.p variants={item} className="text-white text-xl mt-1 mb-2">
                     {formatEventTime(event.time)}
                 </motion.p>
+
+                {event.dressCode && (
+                    <motion.p variants={item} className="text-white/90 text-lg mt-1 font-medium bg-white/10 px-4 py-1 rounded-full border border-white/10 w-fit mx-auto backdrop-blur-sm">
+                        Dress Code: {event.dressCode}
+                    </motion.p>
+                )}
 
                 {event.mapLink && (
                     <motion.a
@@ -221,14 +227,14 @@ export default function EventsSection({ events = [], invitation }) {
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 />
 
                 <motion.div
                     variants={containerDetails}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-100px" }}
                     className="space-y-7 text-white mb-10"
                 >
                     <motion.p variants={itemDetails} className="text-2xl leading-relaxed">

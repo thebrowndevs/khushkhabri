@@ -166,6 +166,12 @@ function EventItem({ event, meta }) {
                 {formatEventTime(event.time)}
             </motion.p>
 
+            {event.dressCode && (
+                <motion.p variants={item} className="text-white/90 text-lg mt-1 font-medium bg-white/10 px-4 py-1 rounded-full border border-white/10 w-fit mx-auto backdrop-blur-sm relative z-10">
+                    Dress Code: {event.dressCode}
+                </motion.p>
+            )}
+
             {event.mapLink && (
                 <motion.a
                     variants={item}

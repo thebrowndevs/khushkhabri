@@ -73,6 +73,7 @@ const invitationSchema = new mongoose.Schema(
                 time: String,
                 venue: String,
                 mapLink: String,
+                dressCode: String,
             },
         ],
     },
@@ -80,7 +81,7 @@ const invitationSchema = new mongoose.Schema(
 );
 
 const Invitation = mongoose.models.Invitation || mongoose.model("Invitation", invitationSchema);
-if (Invitation.schema.path('rsvpNumber') === undefined || Invitation.schema.path('mainDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails') === undefined || Invitation.schema.path('satsangDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails.mapLink') === undefined) {
+if (Invitation.schema.path('rsvpNumber') === undefined || Invitation.schema.path('mainDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails') === undefined || Invitation.schema.path('satsangDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails.mapLink') === undefined || Invitation.schema.path('events.dressCode') === undefined) {
     delete mongoose.models.Invitation;
 }
 export default mongoose.models.Invitation || mongoose.model("Invitation", invitationSchema);

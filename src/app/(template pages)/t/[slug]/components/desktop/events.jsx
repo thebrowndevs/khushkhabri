@@ -151,7 +151,7 @@ function EventItem({ event, meta }) {
 
             {/* Title */}
             <motion.h3 variants={item} className="text-white text-6xl -mt-2 font-script relative z-10">
-                {meta.title}
+                {event.label || meta.title}
             </motion.h3>
 
             {/* Details */}
@@ -166,6 +166,12 @@ function EventItem({ event, meta }) {
             <motion.p variants={item} className="text-white text-xl mt-1 mb-2 relative z-10">
                 {formatEventTime(event.time)}
             </motion.p>
+
+            {event.dressCode && (
+                <motion.p variants={item} className="text-white/90 text-lg mt-1 font-medium bg-white/10 px-4 py-1 rounded-full border border-white/10 w-fit mx-auto backdrop-blur-sm relative z-10">
+                    Dress Code: {event.dressCode}
+                </motion.p>
+            )}
 
             {event.mapLink && (
                 <motion.a

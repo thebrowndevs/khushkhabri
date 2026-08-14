@@ -59,12 +59,12 @@ export default function HeroBottom({ invitation }) {
                     {side === 'groom' ? (
                         <>
                             Sardar {groom?.father} <br />
-                            Sardani {groom?.mother}
+                            Sardarni {groom?.mother}
                         </>
                     ) : (
                         <>
                             Sardar {bride?.father} <br />
-                            Sardani {bride?.mother}
+                            Sardarni {bride?.mother}
                         </>
                     )}
                 </motion.p>
@@ -98,12 +98,12 @@ export default function HeroBottom({ invitation }) {
                     {side === 'groom' ? (
                         <>
                             Sardar {bride?.father || 'Father'} &<br />
-                            Sardani {bride?.mother || 'Mother'}
+                            Sardarni {bride?.mother || 'Mother'}
                         </>
                     ) : (
                         <>
                             Sardar {groom?.father || 'Father'} &<br />
-                            Sardani {groom?.mother || 'Mother'}
+                            Sardarni {groom?.mother || 'Mother'}
                         </>
                     )}
                 </motion.p>

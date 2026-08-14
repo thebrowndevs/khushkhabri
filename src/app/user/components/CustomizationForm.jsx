@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 import { Settings2, Save, Calendar, Clock, MapPin, X } from 'lucide-react';
 
 const DEFAULT_EVENTS = [
-    { name: 'Engagement', enabled: false, date: '', time: '', venue: '', mapLink: '' },
-    { name: 'Haldi', enabled: false, date: '', time: '', venue: '', mapLink: '' },
-    { name: 'Mehendi', enabled: false, date: '', time: '', venue: '', mapLink: '' },
-    { name: 'Cocktail', enabled: false, date: '', time: '', venue: '', mapLink: '' },
-    { name: 'Wedding', enabled: true, date: '', time: '', venue: '', mapLink: '' },
-    { name: 'Reception', enabled: false, date: '', time: '', venue: '', mapLink: '' },
+    { name: 'Engagement', label: '', enabled: false, date: '', time: '', venue: '', mapLink: '', dressCode: '' },
+    { name: 'Haldi', label: '', enabled: false, date: '', time: '', venue: '', mapLink: '', dressCode: '' },
+    { name: 'Mehendi', label: '', enabled: false, date: '', time: '', venue: '', mapLink: '', dressCode: '' },
+    { name: 'Cocktail', label: '', enabled: false, date: '', time: '', venue: '', mapLink: '', dressCode: '' },
+    { name: 'Wedding', label: '', enabled: true, date: '', time: '', venue: '', mapLink: '', dressCode: '' },
+    { name: 'Reception', label: '', enabled: false, date: '', time: '', venue: '', mapLink: '', dressCode: '' },
 ];
 
 export default function CustomizationForm({ invitation, orderId }) {
@@ -174,6 +174,18 @@ export default function CustomizationForm({ invitation, orderId }) {
                             <div className={`space-y-4 transition-all ${event.enabled ? 'pointer-events-auto' : 'pointer-events-none opacity-50'}`}>
                                 <div className="space-y-1.5">
                                     <label className="text-[10px] font-bold text-gray-400 uppercase ml-1 flex items-center gap-1.5">
+                                        Custom Event Name (Optional)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={event.label || ''}
+                                        onChange={(e) => handleEventChange(index, 'label', e.target.value)}
+                                        placeholder={`e.g. Sangeet, Roka...`}
+                                        className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm focus:border-[#8b2c3c] outline-none transition-all"
+                                    />
+                                </div>
+                                <div className="space-y-1.5">
+                                    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1 flex items-center gap-1.5">
                                         <Calendar size={10} /> Date
                                     </label>
                                     <input
@@ -215,6 +227,18 @@ export default function CustomizationForm({ invitation, orderId }) {
                                         value={event.mapLink || ''}
                                         onChange={(e) => handleEventChange(index, 'mapLink', e.target.value)}
                                         placeholder="Google Maps link..."
+                                        className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm focus:border-[#8b2c3c] outline-none transition-all"
+                                    />
+                                </div>
+                                <div className="space-y-1.5">
+                                    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1 flex items-center gap-1.5">
+                                        Dress Code (Optional)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={event.dressCode || ''}
+                                        onChange={(e) => handleEventChange(index, 'dressCode', e.target.value)}
+                                        placeholder="e.g. Traditional, Yellow theme..."
                                         className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm focus:border-[#8b2c3c] outline-none transition-all"
                                     />
                                 </div>

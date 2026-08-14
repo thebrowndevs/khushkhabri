@@ -78,6 +78,7 @@ export default async function RoyalTemplatePage({ params }) {
             type,
             active: true,
             label: e.label || '',
+            dressCode: e.dressCode || '',
             date: e.date ? new Date(e.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '',
             location: e.venue,
             time: e.time,
