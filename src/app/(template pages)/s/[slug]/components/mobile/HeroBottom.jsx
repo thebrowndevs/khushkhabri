@@ -33,6 +33,18 @@ export default function HeroBottom({ invitation }) {
         },
     };
 
+    const hostGF = side === 'groom' ? invitation?.mainDetails?.groomGrandFatherName : invitation?.mainDetails?.brideGrandFatherName;
+    const hostGM = side === 'groom' ? invitation?.mainDetails?.groomGrandMotherName : invitation?.mainDetails?.brideGrandMotherName;
+    const otherGF = side === 'groom' ? invitation?.mainDetails?.brideGrandFatherName : invitation?.mainDetails?.groomGrandFatherName;
+    const otherGM = side === 'groom' ? invitation?.mainDetails?.brideGrandMotherName : invitation?.mainDetails?.groomGrandMotherName;
+
+    const hasHostGrandparents = hostGF || hostGM;
+    const hostGrandparentsText = [hostGF, hostGM].filter(Boolean).join(" and ");
+
+    const hasOtherGrandparents = otherGF || otherGM;
+    const otherGrandparentsText = [otherGF, otherGM].filter(Boolean).join(" & ");
+    const otherRelationText = side === 'groom' ? 'grand daughter of' : 'grand son of';
+
     return (
         <section className="absolute bottom-[13%] left-0 w-full pb-10 text-center text-white px-6">
 
@@ -44,16 +56,23 @@ export default function HeroBottom({ invitation }) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
             />
 
             <motion.div
                 variants={container}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 className="space-y-7"
             >
+
+                {hasHostGrandparents && (
+                    <motion.div variants={item} className="space-y-1 mb-4">
+                        <p className="text-lg opacity-85">with the blessings of</p>
+                        <p className="text-xl font-medium">{hostGrandparentsText}</p>
+                    </motion.div>
+                )}
 
                 <motion.p variants={item} className="text-xl leading-relaxed">
                     {side === 'groom' ? (
@@ -107,6 +126,13 @@ export default function HeroBottom({ invitation }) {
                         </>
                     )}
                 </motion.p>
+
+                {hasOtherGrandparents && (
+                    <motion.div variants={item} className="space-y-1 mt-4">
+                        <p className="text-lg opacity-85">{otherRelationText}</p>
+                        <p className="text-xl font-medium">{otherGrandparentsText}</p>
+                    </motion.div>
+                )}
 
             </motion.div>
         </section>

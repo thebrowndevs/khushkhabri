@@ -30,22 +30,29 @@ const orderSchema = new mongoose.Schema(
         brideName: String,
         brideFatherName: String,
         brideMotherName: String,
+        brideGrandFatherName: String,
+        brideGrandMotherName: String,
         groomName: String,
         groomFatherName: String,
         groomMotherName: String,
+        groomGrandFatherName: String,
+        groomGrandMotherName: String,
         weddingDate: Date,
         preWeddingPhotos: [String],
         showPreWeddingPhotos: { type: Boolean, default: true },
         weddingVideo: String,
         showWeddingVideo: { type: Boolean, default: true },
         musicUrl: String,
+        instagramHeading: String,
+        instagramLink: String,
+        messageFromCouple: String,
     },
   },
   { timestamps: true }
 );
 
 const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);
-if (Order.schema.path('mainDetails') === undefined || Order.schema.path('mainDetails.musicUrl') === undefined) {
+if (Order.schema.path('mainDetails') === undefined || Order.schema.path('mainDetails.musicUrl') === undefined || Order.schema.path('mainDetails.brideGrandFatherName') === undefined || Order.schema.path('mainDetails.instagramLink') === undefined) {
     delete mongoose.models.Order;
 }
 export default mongoose.models.Order || mongoose.model("Order", orderSchema);

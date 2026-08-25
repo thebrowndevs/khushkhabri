@@ -16,15 +16,22 @@ export default function InviteForm({ order, hasCustomizations = false }) {
         brideName: order.mainDetails?.brideName || '',
         brideFatherName: order.mainDetails?.brideFatherName || '',
         brideMotherName: order.mainDetails?.brideMotherName || '',
+        brideGrandFatherName: order.mainDetails?.brideGrandFatherName || '',
+        brideGrandMotherName: order.mainDetails?.brideGrandMotherName || '',
         groomName: order.mainDetails?.groomName || '',
         groomFatherName: order.mainDetails?.groomFatherName || '',
         groomMotherName: order.mainDetails?.groomMotherName || '',
+        groomGrandFatherName: order.mainDetails?.groomGrandFatherName || '',
+        groomGrandMotherName: order.mainDetails?.groomGrandMotherName || '',
         weddingDate: order.mainDetails?.weddingDate ? new Date(order.mainDetails.weddingDate).toISOString().split('T')[0] : '',
         preWeddingPhotos: order.mainDetails?.preWeddingPhotos || [],
         showPreWeddingPhotos: order.mainDetails?.showPreWeddingPhotos !== undefined ? order.mainDetails.showPreWeddingPhotos : true,
         weddingVideo: order.mainDetails?.weddingVideo || '',
         showWeddingVideo: order.mainDetails?.showWeddingVideo !== undefined ? order.mainDetails.showWeddingVideo : true,
         musicUrl: order.mainDetails?.musicUrl || '',
+        instagramHeading: order.mainDetails?.instagramHeading || '',
+        instagramLink: order.mainDetails?.instagramLink || '',
+        messageFromCouple: order.mainDetails?.messageFromCouple || '',
     });
     const [isUploaderOpen, setIsUploaderOpen] = useState(false);
     const [isMusicLibraryOpen, setIsMusicLibraryOpen] = useState(false);
@@ -248,6 +255,32 @@ export default function InviteForm({ order, hasCustomizations = false }) {
                                             className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
                                         />
                                     </div>
+                                    {order.themeName === 'sikh1' && (
+                                        <>
+                                            <div>
+                                                <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Grandfather's Name (Optional)</label>
+                                                <input
+                                                    type="text"
+                                                    name="brideGrandFatherName"
+                                                    value={formData.brideGrandFatherName || ''}
+                                                    onChange={handleChange}
+                                                    placeholder="Enter name"
+                                                    className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Grandmother's Name (Optional)</label>
+                                                <input
+                                                    type="text"
+                                                    name="brideGrandMotherName"
+                                                    value={formData.brideGrandMotherName || ''}
+                                                    onChange={handleChange}
+                                                    placeholder="Enter name"
+                                                    className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                                />
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
 
@@ -292,6 +325,32 @@ export default function InviteForm({ order, hasCustomizations = false }) {
                                             className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
                                         />
                                     </div>
+                                    {order.themeName === 'sikh1' && (
+                                        <>
+                                            <div>
+                                                <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Grandfather's Name (Optional)</label>
+                                                <input
+                                                    type="text"
+                                                    name="groomGrandFatherName"
+                                                    value={formData.groomGrandFatherName || ''}
+                                                    onChange={handleChange}
+                                                    placeholder="Enter name"
+                                                    className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Grandmother's Name (Optional)</label>
+                                                <input
+                                                    type="text"
+                                                    name="groomGrandMotherName"
+                                                    value={formData.groomGrandMotherName || ''}
+                                                    onChange={handleChange}
+                                                    placeholder="Enter name"
+                                                    className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                                />
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -491,6 +550,68 @@ export default function InviteForm({ order, hasCustomizations = false }) {
                                 )}
                             </div>
                         </div>
+                        {order.themeName === 'sikh1' && (
+                            <>
+                                {/* Instagram Wedding Page Section */}
+                                <div className="pt-8 md:pt-10 border-t border-gray-100">
+                                    <div className="mb-6">
+                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 flex items-center gap-2">
+                                            <span className="text-[#8b2c3c]">📸</span>
+                                            Instagram Wedding Card
+                                        </h3>
+                                        <p className="text-xs md:text-sm text-gray-500 mt-1">Provide custom heading and URL for your wedding Instagram page.</p>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Card Heading (Optional)</label>
+                                            <input
+                                                type="text"
+                                                name="instagramHeading"
+                                                value={formData.instagramHeading || ''}
+                                                onChange={handleChange}
+                                                placeholder="e.g. Our Wedding Album"
+                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Instagram Page Link (Optional)</label>
+                                            <input
+                                                type="url"
+                                                name="instagramLink"
+                                                value={formData.instagramLink || ''}
+                                                onChange={handleChange}
+                                                placeholder="https://instagram.com/..."
+                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Message From Couple Section */}
+                                <div className="pt-8 md:pt-10 border-t border-gray-100">
+                                    <div className="mb-6">
+                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 flex items-center gap-2">
+                                            <span className="text-[#8b2c3c]">💬</span>
+                                            Message from Bride & Groom
+                                        </h3>
+                                        <p className="text-xs md:text-sm text-gray-500 mt-1">A custom quote or message from the couple, shown in the gallery section.</p>
+                                    </div>
+
+                                    <div className="max-w-2xl">
+                                        <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Your Message (Optional)</label>
+                                        <textarea
+                                            name="messageFromCouple"
+                                            value={formData.messageFromCouple || ''}
+                                            onChange={handleChange}
+                                            rows={3}
+                                            placeholder="Write your special message here..."
+                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all resize-none"
+                                        />
+                                    </div>
+                                </div>
+                            </>
+                        )}
 
                         <UploaderDialog
                             open={isUploaderOpen}

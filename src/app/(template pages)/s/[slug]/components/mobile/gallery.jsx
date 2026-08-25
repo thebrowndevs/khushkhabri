@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { Instagram } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -159,6 +160,33 @@ export default function GallerySection({ invitation }) {
                     </motion.div>
                 )}
 
+                {/* ===== Instagram Wedding Page ===== */}
+                {invitation?.mainDetails?.instagramLink && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="mt-16 px-6 max-w-sm mx-auto"
+                    >
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] p-6 text-center shadow-lg flex flex-col items-center">
+                            <div className="w-14 h-14 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-full flex items-center justify-center text-white mb-4 shadow-md">
+                                <Instagram size={28} />
+                            </div>
+                            <h3 className="text-white text-xl font-bold mb-2">
+                                {invitation.mainDetails.instagramHeading || "Our Wedding Album"}
+                            </h3>
+                            <a
+                                href={invitation.mainDetails.instagramLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2 bg-white/20 hover:bg-white/30 text-white px-6 py-2.5 rounded-full border border-white/30 text-sm font-semibold transition-all duration-300 flex items-center gap-2 shadow-sm"
+                            >
+                                View Instagram Page
+                            </a>
+                        </div>
+                    </motion.div>
+                )}
+
                 {/* ===== Blessing ===== */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -197,6 +225,20 @@ export default function GallerySection({ invitation }) {
                     <p className="text-white text-2xl mt-6 italic">
                         begin their forever...
                     </p>
+
+                    {invitation?.mainDetails?.messageFromCouple && (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1 }}
+                            className="mt-10 max-w-md mx-auto bg-white/5 border border-white/10 rounded-[18px] p-6 backdrop-blur-sm"
+                        >
+                            <p className="text-[#D1CBA9] text-xl font-script italic mb-2">Message from Bride & Groom</p>
+                            <p className="text-white/90 text-lg leading-relaxed font-serif">
+                                "{invitation.mainDetails.messageFromCouple}"
+                            </p>
+                        </motion.div>
+                    )}
 
                 </motion.div>
 

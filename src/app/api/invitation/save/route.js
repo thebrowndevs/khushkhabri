@@ -22,9 +22,13 @@ export async function POST(req) {
             brideName,
             brideFatherName,
             brideMotherName,
+            brideGrandFatherName,
+            brideGrandMotherName,
             groomName,
             groomFatherName,
             groomMotherName,
+            groomGrandFatherName,
+            groomGrandMotherName,
             weddingDate,
             side,
             events,
@@ -34,6 +38,9 @@ export async function POST(req) {
             weddingVideo,
             showWeddingVideo,
             musicUrl,
+            instagramHeading,
+            instagramLink,
+            messageFromCouple,
             isCustomization,
             isCreateNew,
             isSatsang,
@@ -116,6 +123,13 @@ export async function POST(req) {
                         weddingVideo: weddingVideo || '',
                         showWeddingVideo: showWeddingVideo !== undefined ? showWeddingVideo : true,
                         musicUrl: musicUrl || '',
+                        brideGrandFatherName: order.mainDetails.brideGrandFatherName || '',
+                        brideGrandMotherName: order.mainDetails.brideGrandMotherName || '',
+                        groomGrandFatherName: order.mainDetails.groomGrandFatherName || '',
+                        groomGrandMotherName: order.mainDetails.groomGrandMotherName || '',
+                        instagramHeading: order.mainDetails.instagramHeading || '',
+                        instagramLink: order.mainDetails.instagramLink || '',
+                        messageFromCouple: order.mainDetails.messageFromCouple || '',
                     }
                 });
             } else if (inviteId) {
@@ -136,6 +150,13 @@ export async function POST(req) {
                 if (weddingVideo !== undefined) invitation.mainDetails.weddingVideo = weddingVideo;
                 if (showWeddingVideo !== undefined) invitation.mainDetails.showWeddingVideo = showWeddingVideo;
                 if (musicUrl !== undefined) invitation.mainDetails.musicUrl = musicUrl;
+                if (brideGrandFatherName !== undefined) invitation.mainDetails.brideGrandFatherName = brideGrandFatherName;
+                if (brideGrandMotherName !== undefined) invitation.mainDetails.brideGrandMotherName = brideGrandMotherName;
+                if (groomGrandFatherName !== undefined) invitation.mainDetails.groomGrandFatherName = groomGrandFatherName;
+                if (groomGrandMotherName !== undefined) invitation.mainDetails.groomGrandMotherName = groomGrandMotherName;
+                if (instagramHeading !== undefined) invitation.mainDetails.instagramHeading = instagramHeading;
+                if (instagramLink !== undefined) invitation.mainDetails.instagramLink = instagramLink;
+                if (messageFromCouple !== undefined) invitation.mainDetails.messageFromCouple = messageFromCouple;
 
                 // Ensure wedding details are up to date from order
                 if (order.mainDetails) {
@@ -150,6 +171,14 @@ export async function POST(req) {
                         mother: order.mainDetails.groomMotherName 
                     };
                     invitation.weddingDetails.weddingDate = order.mainDetails.weddingDate;
+
+                    invitation.mainDetails.brideGrandFatherName = order.mainDetails.brideGrandFatherName || '';
+                    invitation.mainDetails.brideGrandMotherName = order.mainDetails.brideGrandMotherName || '';
+                    invitation.mainDetails.groomGrandFatherName = order.mainDetails.groomGrandFatherName || '';
+                    invitation.mainDetails.groomGrandMotherName = order.mainDetails.groomGrandMotherName || '';
+                    invitation.mainDetails.instagramHeading = order.mainDetails.instagramHeading || '';
+                    invitation.mainDetails.instagramLink = order.mainDetails.instagramLink || '';
+                    invitation.mainDetails.messageFromCouple = order.mainDetails.messageFromCouple || '';
                 }
 
                 await invitation.save();
@@ -164,15 +193,22 @@ export async function POST(req) {
                     brideName,
                     brideFatherName,
                     brideMotherName,
+                    brideGrandFatherName,
+                    brideGrandMotherName,
                     groomName,
                     groomFatherName,
                     groomMotherName,
+                    groomGrandFatherName,
+                    groomGrandMotherName,
                     weddingDate: new Date(weddingDate),
                     preWeddingPhotos: preWeddingPhotos || [],
                     showPreWeddingPhotos: showPreWeddingPhotos !== undefined ? showPreWeddingPhotos : true,
                     weddingVideo: weddingVideo || '',
                     showWeddingVideo: showWeddingVideo !== undefined ? showWeddingVideo : true,
                     musicUrl: musicUrl || '',
+                    instagramHeading: instagramHeading || '',
+                    instagramLink: instagramLink || '',
+                    messageFromCouple: messageFromCouple || '',
                 }
             }, { new: true });
 
@@ -195,6 +231,13 @@ export async function POST(req) {
                     "mainDetails.weddingVideo": weddingVideo || '',
                     "mainDetails.showWeddingVideo": showWeddingVideo !== undefined ? showWeddingVideo : true,
                     "mainDetails.musicUrl": musicUrl || '',
+                    "mainDetails.brideGrandFatherName": brideGrandFatherName || '',
+                    "mainDetails.brideGrandMotherName": brideGrandMotherName || '',
+                    "mainDetails.groomGrandFatherName": groomGrandFatherName || '',
+                    "mainDetails.groomGrandMotherName": groomGrandMotherName || '',
+                    "mainDetails.instagramHeading": instagramHeading || '',
+                    "mainDetails.instagramLink": instagramLink || '',
+                    "mainDetails.messageFromCouple": messageFromCouple || '',
                 }
             });
 

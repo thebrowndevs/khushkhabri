@@ -3,9 +3,20 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Play } from "lucide-react";
 
-export default function MusicPlayer({ url }) {
+export default function MusicPlayer({ url, forcePlay }) {
     const [isPlaying, setIsPlaying] = useState(false);
     const mediaRef = useRef(null);
+
+    useEffect(() => {
+        if (forcePlay && mediaRef.current) {
+            const media = mediaRef.current;
+            media.muted = false;
+            media.volume = 1;
+            media.play()
+                .then(() => setIsPlaying(true))
+                .catch((err) => console.log("forcePlay failed", err));
+        }
+    }, [forcePlay]);
 
     useEffect(() => {
         if (!url || !mediaRef.current) return;
@@ -48,8 +59,10 @@ export default function MusicPlayer({ url }) {
             }
         };
 
-        // try immediately
-        playWithSound();
+        // try immediately if not deferred by forcePlay
+        if (forcePlay === undefined) {
+            playWithSound();
+        }
 
         // Samsung browser / page restore sometimes works better on pageshow
         const handlePageShow = () => {
@@ -87,7 +100,7 @@ export default function MusicPlayer({ url }) {
                 window.removeEventListener(event, unlock);
             });
         };
-    }, [url]);
+    }, [url, forcePlay]);
 
     const togglePlay = async (e) => {
         e.preventDefault();
