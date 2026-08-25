@@ -31,7 +31,7 @@ export default function ResponsiveTemplateWrapper(props) {
 
     if (isMobile === null) return null; // prevent hydration mismatch
 
-    const { bride, groom } = props.invitation?.weddingDetails || {};
+    const { bride, groom, side } = props.invitation?.weddingDetails || {};
 
     return (
         <>
@@ -85,9 +85,19 @@ export default function ResponsiveTemplateWrapper(props) {
                                 />
 
                                 <h2 className="text-[#D1CBA9] text-4xl sm:text-5xl font-script tracking-wide leading-tight drop-shadow-md">
-                                    {groom?.name ? groom.name.split(' ')[0] : 'Groom'} <br />
-                                    <span className="text-white text-3xl font-sans font-light">weds</span> <br />
-                                    {bride?.name ? bride.name.split(' ')[0] : 'Bride'}
+                                    {side === 'bride' ? (
+                                        <>
+                                            {bride?.name ? bride.name.split(' ')[0] : 'Bride'} <br />
+                                            <span className="text-white text-3xl font-sans font-light">weds</span> <br />
+                                            {groom?.name ? groom.name.split(' ')[0] : 'Groom'}
+                                        </>
+                                    ) : (
+                                        <>
+                                            {groom?.name ? groom.name.split(' ')[0] : 'Groom'} <br />
+                                            <span className="text-white text-3xl font-sans font-light">weds</span> <br />
+                                            {bride?.name ? bride.name.split(' ')[0] : 'Bride'}
+                                        </>
+                                    )}
                                 </h2>
 
                                 <button
