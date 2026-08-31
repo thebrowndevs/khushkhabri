@@ -35,6 +35,10 @@ const invitationSchema = new mongoose.Schema(
             instagramHeading: String,
             instagramLink: String,
             messageFromCouple: String,
+            brideFatherPrefix: String,
+            brideMotherPrefix: String,
+            groomFatherPrefix: String,
+            groomMotherPrefix: String,
         },
 
         // 🔹 SATSANG ONLY
@@ -88,7 +92,7 @@ const invitationSchema = new mongoose.Schema(
 );
 
 const Invitation = mongoose.models.Invitation || mongoose.model("Invitation", invitationSchema);
-if (Invitation.schema.path('rsvpNumber') === undefined || Invitation.schema.path('mainDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails') === undefined || Invitation.schema.path('satsangDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails.mapLink') === undefined || Invitation.schema.path('events.dressCode') === undefined || Invitation.schema.path('mainDetails.brideGrandFatherName') === undefined || Invitation.schema.path('mainDetails.instagramLink') === undefined) {
+if (Invitation.schema.path('rsvpNumber') === undefined || Invitation.schema.path('mainDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails') === undefined || Invitation.schema.path('satsangDetails.musicUrl') === undefined || Invitation.schema.path('satsangDetails.mapLink') === undefined || Invitation.schema.path('events.dressCode') === undefined || Invitation.schema.path('mainDetails.brideGrandFatherName') === undefined || Invitation.schema.path('mainDetails.instagramLink') === undefined || Invitation.schema.path('mainDetails.brideFatherPrefix') === undefined) {
     delete mongoose.models.Invitation;
 }
 export default mongoose.models.Invitation || mongoose.model("Invitation", invitationSchema);

@@ -30,11 +30,15 @@ const orderSchema = new mongoose.Schema(
         brideName: String,
         brideFatherName: String,
         brideMotherName: String,
+        brideFatherPrefix: String,
+        brideMotherPrefix: String,
         brideGrandFatherName: String,
         brideGrandMotherName: String,
         groomName: String,
         groomFatherName: String,
         groomMotherName: String,
+        groomFatherPrefix: String,
+        groomMotherPrefix: String,
         groomGrandFatherName: String,
         groomGrandMotherName: String,
         weddingDate: Date,
@@ -52,7 +56,7 @@ const orderSchema = new mongoose.Schema(
 );
 
 const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);
-if (Order.schema.path('mainDetails') === undefined || Order.schema.path('mainDetails.musicUrl') === undefined || Order.schema.path('mainDetails.brideGrandFatherName') === undefined || Order.schema.path('mainDetails.instagramLink') === undefined) {
+if (Order.schema.path('mainDetails') === undefined || Order.schema.path('mainDetails.musicUrl') === undefined || Order.schema.path('mainDetails.brideGrandFatherName') === undefined || Order.schema.path('mainDetails.instagramLink') === undefined || Order.schema.path('mainDetails.brideFatherPrefix') === undefined) {
     delete mongoose.models.Order;
 }
 export default mongoose.models.Order || mongoose.model("Order", orderSchema);

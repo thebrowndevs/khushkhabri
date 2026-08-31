@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 export default function HeroBottom({ invitation }) {
     const { bride, groom, side } = invitation?.weddingDetails || {};
 
+    const groomFatherPrefix = invitation?.mainDetails?.groomFatherPrefix || 'Sardar';
+    const groomMotherPrefix = invitation?.mainDetails?.groomMotherPrefix || 'Sardarni';
+    const brideFatherPrefix = invitation?.mainDetails?.brideFatherPrefix || 'Sardar';
+    const brideMotherPrefix = invitation?.mainDetails?.brideMotherPrefix || 'Sardarni';
+
     // 🔥 container stagger
     const container = {
         hidden: {},
@@ -77,13 +82,13 @@ export default function HeroBottom({ invitation }) {
                 <motion.p variants={item} className="text-xl leading-relaxed">
                     {side === 'groom' ? (
                         <>
-                            Sardar {groom?.father} <br />
-                            Sardarni {groom?.mother}
+                            {groomFatherPrefix} {groom?.father} <br />
+                            {groomMotherPrefix} {groom?.mother}
                         </>
                     ) : (
                         <>
-                            Sardar {bride?.father} <br />
-                            Sardarni {bride?.mother}
+                            {brideFatherPrefix} {bride?.father} <br />
+                            {brideMotherPrefix} {bride?.mother}
                         </>
                     )}
                 </motion.p>
@@ -116,13 +121,13 @@ export default function HeroBottom({ invitation }) {
                 <motion.p variants={item} className="text-2xl leading-relaxed">
                     {side === 'groom' ? (
                         <>
-                            Sardar {bride?.father || 'Father'} &<br />
-                            Sardarni {bride?.mother || 'Mother'}
+                            {brideFatherPrefix} {bride?.father || 'Father'} &<br />
+                            {brideMotherPrefix} {bride?.mother || 'Mother'}
                         </>
                     ) : (
                         <>
-                            Sardar {groom?.father || 'Father'} &<br />
-                            Sardarni {groom?.mother || 'Mother'}
+                            {groomFatherPrefix} {groom?.father || 'Father'} &<br />
+                            {groomMotherPrefix} {groom?.mother || 'Mother'}
                         </>
                     )}
                 </motion.p>

@@ -76,7 +76,7 @@ export default async function FloralTemplatePage({ params }) {
     const dbEvents = invitation.events || [];
     const templateEvents = dbEvents.filter(e => e.enabled).map(e => {
         let type = e.name.toLowerCase();
-        if (type === 'wedding') type = 'shaadi';
+        if (type === 'wedding') type = 'anand_karaj';
         if (type === 'mehendi') type = 'mehndi';
 
         return {

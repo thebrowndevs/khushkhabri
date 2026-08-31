@@ -41,6 +41,10 @@ export async function POST(req) {
             instagramHeading,
             instagramLink,
             messageFromCouple,
+            brideFatherPrefix,
+            brideMotherPrefix,
+            groomFatherPrefix,
+            groomMotherPrefix,
             isCustomization,
             isCreateNew,
             isSatsang,
@@ -130,6 +134,10 @@ export async function POST(req) {
                         instagramHeading: order.mainDetails.instagramHeading || '',
                         instagramLink: order.mainDetails.instagramLink || '',
                         messageFromCouple: order.mainDetails.messageFromCouple || '',
+                        brideFatherPrefix: order.mainDetails.brideFatherPrefix || '',
+                        brideMotherPrefix: order.mainDetails.brideMotherPrefix || '',
+                        groomFatherPrefix: order.mainDetails.groomFatherPrefix || '',
+                        groomMotherPrefix: order.mainDetails.groomMotherPrefix || '',
                     }
                 });
             } else if (inviteId) {
@@ -157,6 +165,10 @@ export async function POST(req) {
                 if (instagramHeading !== undefined) invitation.mainDetails.instagramHeading = instagramHeading;
                 if (instagramLink !== undefined) invitation.mainDetails.instagramLink = instagramLink;
                 if (messageFromCouple !== undefined) invitation.mainDetails.messageFromCouple = messageFromCouple;
+                if (brideFatherPrefix !== undefined) invitation.mainDetails.brideFatherPrefix = brideFatherPrefix;
+                if (brideMotherPrefix !== undefined) invitation.mainDetails.brideMotherPrefix = brideMotherPrefix;
+                if (groomFatherPrefix !== undefined) invitation.mainDetails.groomFatherPrefix = groomFatherPrefix;
+                if (groomMotherPrefix !== undefined) invitation.mainDetails.groomMotherPrefix = groomMotherPrefix;
 
                 // Ensure wedding details are up to date from order
                 if (order.mainDetails) {
@@ -179,6 +191,10 @@ export async function POST(req) {
                     invitation.mainDetails.instagramHeading = order.mainDetails.instagramHeading || '';
                     invitation.mainDetails.instagramLink = order.mainDetails.instagramLink || '';
                     invitation.mainDetails.messageFromCouple = order.mainDetails.messageFromCouple || '';
+                    invitation.mainDetails.brideFatherPrefix = order.mainDetails.brideFatherPrefix || '';
+                    invitation.mainDetails.brideMotherPrefix = order.mainDetails.brideMotherPrefix || '';
+                    invitation.mainDetails.groomFatherPrefix = order.mainDetails.groomFatherPrefix || '';
+                    invitation.mainDetails.groomMotherPrefix = order.mainDetails.groomMotherPrefix || '';
                 }
 
                 await invitation.save();
@@ -209,6 +225,10 @@ export async function POST(req) {
                     instagramHeading: instagramHeading || '',
                     instagramLink: instagramLink || '',
                     messageFromCouple: messageFromCouple || '',
+                    brideFatherPrefix: brideFatherPrefix || '',
+                    brideMotherPrefix: brideMotherPrefix || '',
+                    groomFatherPrefix: groomFatherPrefix || '',
+                    groomMotherPrefix: groomMotherPrefix || '',
                 }
             }, { new: true });
 
@@ -238,6 +258,10 @@ export async function POST(req) {
                     "mainDetails.instagramHeading": instagramHeading || '',
                     "mainDetails.instagramLink": instagramLink || '',
                     "mainDetails.messageFromCouple": messageFromCouple || '',
+                    "mainDetails.brideFatherPrefix": brideFatherPrefix || '',
+                    "mainDetails.brideMotherPrefix": brideMotherPrefix || '',
+                    "mainDetails.groomFatherPrefix": groomFatherPrefix || '',
+                    "mainDetails.groomMotherPrefix": groomMotherPrefix || '',
                 }
             });
 

@@ -6,6 +6,11 @@ import { useEffect, useRef } from "react";
 export default function HeroBottom({ invitation }) {
     const { bride, groom, side } = invitation?.weddingDetails || {};
 
+    const groomFatherPrefix = invitation?.mainDetails?.groomFatherPrefix || 'Mr';
+    const groomMotherPrefix = invitation?.mainDetails?.groomMotherPrefix || 'Mrs';
+    const brideFatherPrefix = invitation?.mainDetails?.brideFatherPrefix || 'Mr';
+    const brideMotherPrefix = invitation?.mainDetails?.brideMotherPrefix || 'Mrs';
+
     const ref = useRef(null);
     const controls = useAnimation();
     const isInView = useInView(ref, { once: false, margin: "-100px" });
@@ -69,13 +74,13 @@ export default function HeroBottom({ invitation }) {
                 <motion.p variants={item} className="text-2xl leading-relaxed">
                     {side === 'groom' ? (
                         <>
-                            Mr {groom?.father} &<br />
-                            Mrs {groom?.mother}
+                            {groomFatherPrefix} {groom?.father} &<br />
+                            {groomMotherPrefix} {groom?.mother}
                         </>
                     ) : (
                         <>
-                            Mr {bride?.father} &<br />
-                            Mrs {bride?.mother}
+                            {brideFatherPrefix} {bride?.father} &<br />
+                            {brideMotherPrefix} {bride?.mother}
                         </>
                     )}
                 </motion.p>
@@ -108,13 +113,13 @@ export default function HeroBottom({ invitation }) {
                 <motion.p variants={item} className="text-2xl leading-relaxed">
                     {side === 'groom' ? (
                         <>
-                            Mr {bride?.father || 'Father'} &<br />
-                            Mrs {bride?.mother || 'Mother'}
+                            {brideFatherPrefix} {bride?.father || 'Father'} &<br />
+                            {brideMotherPrefix} {bride?.mother || 'Mother'}
                         </>
                     ) : (
                         <>
-                            Mr {groom?.father || 'Father'} &<br />
-                            Mrs {groom?.mother || 'Mother'}
+                            {groomFatherPrefix} {groom?.father || 'Father'} &<br />
+                            {groomMotherPrefix} {groom?.mother || 'Mother'}
                         </>
                     )}
                 </motion.p>

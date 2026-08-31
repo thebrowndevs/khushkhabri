@@ -16,11 +16,15 @@ export default function InviteForm({ order, hasCustomizations = false }) {
         brideName: order.mainDetails?.brideName || '',
         brideFatherName: order.mainDetails?.brideFatherName || '',
         brideMotherName: order.mainDetails?.brideMotherName || '',
+        brideFatherPrefix: order.mainDetails?.brideFatherPrefix || '',
+        brideMotherPrefix: order.mainDetails?.brideMotherPrefix || '',
         brideGrandFatherName: order.mainDetails?.brideGrandFatherName || '',
         brideGrandMotherName: order.mainDetails?.brideGrandMotherName || '',
         groomName: order.mainDetails?.groomName || '',
         groomFatherName: order.mainDetails?.groomFatherName || '',
         groomMotherName: order.mainDetails?.groomMotherName || '',
+        groomFatherPrefix: order.mainDetails?.groomFatherPrefix || '',
+        groomMotherPrefix: order.mainDetails?.groomMotherPrefix || '',
         groomGrandFatherName: order.mainDetails?.groomGrandFatherName || '',
         groomGrandMotherName: order.mainDetails?.groomGrandMotherName || '',
         weddingDate: order.mainDetails?.weddingDate ? new Date(order.mainDetails.weddingDate).toISOString().split('T')[0] : '',
@@ -233,27 +237,53 @@ export default function InviteForm({ order, hasCustomizations = false }) {
                                             className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
                                         />
                                     </div>
-                                    <div>
-                                        <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Father's Name</label>
-                                        <input
-                                            type="text"
-                                            name="brideFatherName"
-                                            value={formData.brideFatherName}
-                                            onChange={handleChange}
-                                            placeholder="Enter name"
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
-                                        />
+                                    <div className="grid grid-cols-3 gap-2">
+                                        <div className="col-span-1">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Title</label>
+                                            <input
+                                                type="text"
+                                                name="brideFatherPrefix"
+                                                value={formData.brideFatherPrefix}
+                                                onChange={handleChange}
+                                                placeholder={order.themeName === 'sikh1' ? 'Sardar' : 'Mr'}
+                                                className="w-full px-3 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div className="col-span-2">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Father's Name</label>
+                                            <input
+                                                type="text"
+                                                name="brideFatherName"
+                                                value={formData.brideFatherName}
+                                                onChange={handleChange}
+                                                placeholder="Enter name"
+                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Mother's Name</label>
-                                        <input
-                                            type="text"
-                                            name="brideMotherName"
-                                            value={formData.brideMotherName}
-                                            onChange={handleChange}
-                                            placeholder="Enter name"
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
-                                        />
+                                    <div className="grid grid-cols-3 gap-2">
+                                        <div className="col-span-1">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Title</label>
+                                            <input
+                                                type="text"
+                                                name="brideMotherPrefix"
+                                                value={formData.brideMotherPrefix}
+                                                onChange={handleChange}
+                                                placeholder={order.themeName === 'sikh1' ? 'Sardarni' : 'Mrs'}
+                                                className="w-full px-3 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div className="col-span-2">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Mother's Name</label>
+                                            <input
+                                                type="text"
+                                                name="brideMotherName"
+                                                value={formData.brideMotherName}
+                                                onChange={handleChange}
+                                                placeholder="Enter name"
+                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
                                     </div>
                                     {order.themeName === 'sikh1' && (
                                         <>
@@ -303,27 +333,53 @@ export default function InviteForm({ order, hasCustomizations = false }) {
                                             className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
                                         />
                                     </div>
-                                    <div>
-                                        <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Father's Name</label>
-                                        <input
-                                            type="text"
-                                            name="groomFatherName"
-                                            value={formData.groomFatherName}
-                                            onChange={handleChange}
-                                            placeholder="Enter name"
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
-                                        />
+                                    <div className="grid grid-cols-3 gap-2">
+                                        <div className="col-span-1">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Title</label>
+                                            <input
+                                                type="text"
+                                                name="groomFatherPrefix"
+                                                value={formData.groomFatherPrefix}
+                                                onChange={handleChange}
+                                                placeholder={order.themeName === 'sikh1' ? 'Sardar' : 'Mr'}
+                                                className="w-full px-3 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div className="col-span-2">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Father's Name</label>
+                                            <input
+                                                type="text"
+                                                name="groomFatherName"
+                                                value={formData.groomFatherName}
+                                                onChange={handleChange}
+                                                placeholder="Enter name"
+                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Mother's Name</label>
-                                        <input
-                                            type="text"
-                                            name="groomMotherName"
-                                            value={formData.groomMotherName}
-                                            onChange={handleChange}
-                                            placeholder="Enter name"
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
-                                        />
+                                    <div className="grid grid-cols-3 gap-2">
+                                        <div className="col-span-1">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Title</label>
+                                            <input
+                                                type="text"
+                                                name="groomMotherPrefix"
+                                                value={formData.groomMotherPrefix}
+                                                onChange={handleChange}
+                                                placeholder={order.themeName === 'sikh1' ? 'Sardarni' : 'Mrs'}
+                                                className="w-full px-3 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div className="col-span-2">
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Mother's Name</label>
+                                            <input
+                                                type="text"
+                                                name="groomMotherName"
+                                                value={formData.groomMotherName}
+                                                onChange={handleChange}
+                                                placeholder="Enter name"
+                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-sm focus:ring-2 focus:ring-[#8b2c3c]/10 focus:border-[#8b2c3c] outline-none transition-all"
+                                            />
+                                        </div>
                                     </div>
                                     {order.themeName === 'sikh1' && (
                                         <>
