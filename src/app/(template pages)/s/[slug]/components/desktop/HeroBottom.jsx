@@ -82,12 +82,12 @@ export default function HeroBottom({ invitation }) {
                 <motion.p variants={item} className="text-2xl leading-relaxed">
                     {side === 'groom' ? (
                         <>
-                            {groomFatherPrefix} {groom?.father} <br />
+                            {groomFatherPrefix} {groom?.father} &<br />
                             {groomMotherPrefix} {groom?.mother}
                         </>
                     ) : (
                         <>
-                            {brideFatherPrefix} {bride?.father} <br />
+                            {brideFatherPrefix} {bride?.father} &<br />
                             {brideMotherPrefix} {bride?.mother}
                         </>
                     )}
