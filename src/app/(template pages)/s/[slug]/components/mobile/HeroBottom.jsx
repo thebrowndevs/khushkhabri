@@ -72,13 +72,6 @@ export default function HeroBottom({ invitation }) {
                 className="space-y-7"
             >
 
-                {hasHostGrandparents && (
-                    <motion.div variants={item} className="space-y-1 mb-4">
-                        <p className="text-lg opacity-85">with the blessings of</p>
-                        <p className="text-xl font-medium">{hostGrandparentsText}</p>
-                    </motion.div>
-                )}
-
                 <motion.p variants={item} className="text-2xl leading-relaxed">
                     {side === 'groom' ? (
                         <>
@@ -102,17 +95,31 @@ export default function HeroBottom({ invitation }) {
                     {side === 'groom' ? 'son' : 'daughter'}
                 </motion.p>
 
-                <motion.h3 variants={item} className="text-5xl font-script tracking-wide">
-                    {side === 'groom' ? groom?.name : bride?.name}
-                </motion.h3>
+                <motion.div variants={item} className="space-y-2">
+                    <h3 className="text-5xl font-script tracking-wide">
+                        {side === 'groom' ? groom?.name : bride?.name}
+                    </h3>
+                    {hasHostGrandparents && (
+                        <p className="text-lg opacity-85">
+                            ({side === 'groom' ? 'Grand S/O' : 'Grand D/O'}: {hostGrandparentsText})
+                        </p>
+                    )}
+                </motion.div>
 
                 <motion.p variants={item} className="text-lg">
                     with
                 </motion.p>
 
-                <motion.h3 variants={item} className="text-5xl font-script tracking-wide">
-                    {side === 'groom' ? bride?.name : groom?.name}
-                </motion.h3>
+                <motion.div variants={item} className="space-y-2">
+                    <h3 className="text-5xl font-script tracking-wide">
+                        {side === 'groom' ? bride?.name : groom?.name}
+                    </h3>
+                    {hasOtherGrandparents && (
+                        <p className="text-lg opacity-85">
+                            ({side === 'groom' ? 'Grand D/O' : 'Grand S/O'}: {otherGrandparentsText})
+                        </p>
+                    )}
+                </motion.div>
 
                 <motion.p variants={item} className="text-lg mt-4">
                     {side === 'groom' ? 'daughter of' : 'son of'}
@@ -131,13 +138,6 @@ export default function HeroBottom({ invitation }) {
                         </>
                     )}
                 </motion.p>
-
-                {hasOtherGrandparents && (
-                    <motion.div variants={item} className="space-y-1 mt-4">
-                        <p className="text-lg opacity-85">{otherRelationText}</p>
-                        <p className="text-xl font-medium">{otherGrandparentsText}</p>
-                    </motion.div>
-                )}
 
             </motion.div>
         </section>
