@@ -14,6 +14,7 @@ export const useCategories = () => {
   const canEdit = checkEdit(Resources.CATEGORIES);
   const canDelete = checkDelete(Resources.CATEGORIES);
 
+
   // Get all Categories
   const categoriesQuery = useQuery({
     queryKey: ["categories"],
