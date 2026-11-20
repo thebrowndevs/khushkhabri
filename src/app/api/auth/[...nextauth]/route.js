@@ -81,7 +81,7 @@ export const authOptions = {
         })
     ],
     callbacks: {
-        async jwt({ token, user, account, profile }) {
+        async jwt({ token, user, account, profile, trigger, session }) {
             if (user) {
                 token.id = user.id;
                 token.role = user.role;
@@ -90,9 +90,30 @@ export const authOptions = {
                 token.email = user.email;
                 token.picture = user.image;
 
+                // If user doesn't have phone in user object (e.g. from Google login adapter), fetch from DB
+                if (!token.phone && user.email) {
+                    try {
+                        await import('@/lib/mongodb').then(m => m.connectDB());
+                        const dbUser = await User.findOne({ email: user.email });
+                        if (dbUser) {
+                            token.phone = dbUser.phone;
+                            token.role = dbUser.role || token.role;
+                            token.id = dbUser._id.toString();
+                        }
+                    } catch (e) {
+                        console.error("JWT fetch user error:", e);
+                    }
+                }
+
                 const maxAge = user.role === 'user' ? 60 * 60 * 24 * 30 : 60 * 30;
                 token.exp = Math.floor(Date.now() / 1000) + maxAge;
             }
+
+            // Handle session update on client side (e.g. update({ phone }))
+            if (trigger === "update" && session?.phone) {
+                token.phone = session.phone;
+            }
+
             return token;
         },
         async session({ session, token }) {

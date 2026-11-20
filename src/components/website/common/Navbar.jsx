@@ -21,6 +21,7 @@ export default function NavBar() {
     const items = [
         { label: 'Home', href: '/' },
         { label: 'Templates', href: '/templates' },
+        { label: 'Custom Invites', href: '/custom-invites' },
         { label: 'Video Invites', href: '/video-invites' },
         { label: 'About Us', href: '/about-us' },
         { label: 'Blogs', href: '/blogs' },

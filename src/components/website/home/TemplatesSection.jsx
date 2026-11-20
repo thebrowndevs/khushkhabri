@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import { toast, Toaster } from "sonner";
 import AuthDialog from "@/components/auth/LoginDialog";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
+import { CheckCircle2 } from "lucide-react";
 
 import { THEMES } from "@/lib/constants/themes";
 
@@ -138,6 +140,8 @@ export default function TemplatesSection() {
     const discountedPrice = themePrice?.discounted || 4000;
     const originalPrice = themePrice?.original || 7000;
     const discountPercent = Math.round(((originalPrice - discountedPrice) / originalPrice) * 100);
+    const customWhatsappNumber = "919990440099";
+    const customWhatsappUrl = `https://wa.me/${customWhatsappNumber}?text=${encodeURIComponent("Hi! I would like to create a custom invitation.")}`;
 
     return (
         <>
@@ -262,6 +266,62 @@ export default function TemplatesSection() {
                                 </div>
                             </motion.div>
                         ))}
+
+                        {/* Custom Invitation Box */}
+                        <motion.div
+                            className="flex flex-col justify-center bg-gradient-to-b from-[#0b3b27] via-[#072a1c] to-[#041a11] text-white rounded-3xl p-6 sm:p-8 shadow-[0_12px_40px_rgba(4,32,22,0.18)] border border-emerald-600/30 w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33%-1.5rem)] max-w-[360px] relative overflow-hidden transition-all duration-300 hover:shadow-[0_16px_48px_rgba(4,32,22,0.25)] hover:border-emerald-500/50"
+                        >
+                            {/* Subtle Glow Accents */}
+                            <div className="absolute -top-14 -right-14 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+                            <div className="absolute -bottom-14 -left-14 w-40 h-40 bg-emerald-600/15 rounded-full blur-3xl pointer-events-none" />
+
+                            {/* Centered Content */}
+                            <div className="relative z-10 flex flex-col gap-6">
+                                <h3 className="text-2xl sm:text-[26px] font-bold text-white tracking-tight leading-snug">
+                                    Want a Custom Invitation?
+                                </h3>
+
+                                {/* Feature Points */}
+                                <div className="space-y-3.5">
+                                    {[
+                                        "Personalized Theme & Colors",
+                                        // "Custom Caricatures & Art",
+                                        "Your Own Music & Videos",
+                                        "Direct 1-on-1 Designer Chat",
+                                    ].map((item, idx) => (
+                                        <div key={idx} className="flex items-center gap-3">
+                                            <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
+                                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300" />
+                                            </div>
+                                            <span className="text-sm sm:text-[15px] font-semibold text-white leading-tight">
+                                                {item}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Bride & Groom Illustration */}
+                                <div className="relative w-full h-50 sm:h-50 flex items-center justify-center my-1">
+                                    <Image
+                                        src="/custom.png"
+                                        alt="Custom Invitation Illustration"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+
+                                {/* CTA Button aligned with upper content */}
+                                <a
+                                    href={customWhatsappUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full py-3.5 px-4 bg-[#0a5c36] hover:bg-[#074729] text-white rounded-2xl font-semibold transition-all duration-200 shadow-lg shadow-emerald-950/40 flex items-center justify-center gap-2.5 text-sm sm:text-base border border-emerald-500/30 text-center group mt-2"
+                                >
+                                    <FaWhatsapp className="text-xl text-emerald-300 group-hover:scale-110 transition-transform shrink-0" />
+                                    <span>Create Custom Invitation</span>
+                                </a>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

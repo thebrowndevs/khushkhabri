@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast'
 import LayoutDashboard from '@/components/dashboard/LayoutDashboard'
 import { USER_SIDEBAR_LINKS } from '@/lib/constants/sidebarLinks'
 import WhatsAppWidget from '@/components/WhatsAppWidget'
+import MandatoryPhoneDialog from '@/app/user/components/MandatoryPhoneDialog'
 
 function layout({ children }) {
     const [queryClient] = useState(() => new QueryClient({
@@ -23,6 +24,7 @@ function layout({ children }) {
                 <LayoutDashboard sidebarLinks={USER_SIDEBAR_LINKS}>
                     {children}
                     <WhatsAppWidget />
+                    <MandatoryPhoneDialog />
                 </LayoutDashboard>
                 {process.env.NODE_ENV === 'development' && (
                     <ReactQueryDevtools initialIsOpen={false} />
